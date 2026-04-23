@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Training Log</title>
+<title>Training Log — Wide Dashboard</title>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <style>
-:root{--bg:#f5f4f0;--surface:#fff;--surface2:#f0efe9;--surface3:#e8e6de;--border:rgba(0,0,0,0.07);--border2:rgba(0,0,0,0.13);--text:#18181b;--muted:#71717a;--hint:#a1a1aa;--up:#16a34a;--up-bg:#f0fdf4;--up-b:#bbf7d0;--same:#2563eb;--same-bg:#eff6ff;--same-b:#bfdbfe;--down:#dc2626;--down-bg:#fef2f2;--down-b:#fecaca;--r:8px;--rlg:14px;--shadow:0 1px 3px rgba(0,0,0,0.07)}
+:root{--bg:#f5f7fb;--surface:#fff;--surface2:#eef2f7;--surface3:#e2e8f0;--border:rgba(15,23,42,.07);--border2:rgba(15,23,42,.15);--text:#0f172a;--muted:#64748b;--hint:#94a3b8;--up:#2563eb;--up-bg:#eff6ff;--up-b:#bfdbfe;--same:#0891b2;--same-bg:#ecfeff;--same-b:#a5f3fc;--down:#e11d48;--down-bg:#fff1f2;--down-b:#fecdd3;--r:10px;--rlg:16px;--shadow:0 6px 22px rgba(15,23,42,.06)}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 body{background:var(--bg);color:var(--text);font-family:'Geist',sans-serif;font-size:14px;line-height:1.5;min-height:100vh}
 header{background:var(--surface);border-bottom:1px solid var(--border);padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:50px;position:sticky;top:0;z-index:200}
@@ -162,7 +162,9 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:0
   #prog-grid{grid-template-columns:1fr!important}
   .ex-charts-grid-inner{grid-template-columns:1fr!important}
 }
-</style>
+
+/* Extra option overrides */
+.content-cap{max-width:1280px;}.sidebar{width:220px;min-width:220px;}.inner{padding:26px 32px;}.stats-row{grid-template-columns:repeat(4,minmax(150px,1fr));}.ov-grid{grid-template-columns:repeat(5,minmax(140px,1fr));}#prog-grid{grid-template-columns:68% 30%!important;}.ex-charts-grid-inner{grid-template-columns:repeat(3,1fr)!important;}.chart-wrap{height:240px;}.stat-card,.ex-card,.freq-card,.history-card,.chart-card,.week-input-card,.ov-card{box-shadow:var(--shadow);}.tab.active,.btn-primary{background:#0f172a;color:#fff;}</style>
 </head>
 <body>
 <header>
@@ -170,7 +172,7 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:0
   <div class="logo">Training Log</div>
   <button id="wk-picker-btn" onclick="openWkPicker()" style="display:none;font-size:11px;padding:4px 10px;border:1px solid var(--border2);border-radius:var(--r);background:transparent;color:var(--muted);cursor:pointer;font-family:'Geist',sans-serif">Weeks</button>
 </div>
-  <div style="display:flex;align-items:center;gap:10px;"><button onclick="resetToSeed()" style="font-size:11px;padding:4px 10px;border:1px solid var(--border2);border-radius:var(--r);background:transparent;color:var(--muted);cursor:pointer;font-family:'Geist',sans-serif;">Load sample data</button><div style="display:flex;align-items:center;gap:8px">
+  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;"><button type="button" onclick="backupDataFile()" style="font-size:11px;padding:4px 10px;border:1px solid var(--border2);border-radius:var(--r);background:transparent;color:var(--muted);cursor:pointer;font-family:'Geist',sans-serif;">Backup</button><button type="button" onclick="document.getElementById('backup-file-input').click()" style="font-size:11px;padding:4px 10px;border:1px solid var(--border2);border-radius:var(--r);background:transparent;color:var(--muted);cursor:pointer;font-family:'Geist',sans-serif;">Import backup</button><button type="button" onclick="clearAllOldData()" style="font-size:11px;padding:4px 10px;border:1px solid var(--border2);border-radius:var(--r);background:transparent;color:var(--down);cursor:pointer;font-family:'Geist',sans-serif;">Clear data</button><input id="backup-file-input" type="file" accept=".csv,.json,.xls,.html,.txt" style="display:none" onchange="importBackupFile(event)"><div style="display:flex;align-items:center;gap:8px">
   <div class="sync-badge"><div class="sync-dot" id="sync-dot"></div><span id="sync-label">not connected</span></div>
   <button onclick="openSettings()" style="font-size:11px;padding:4px 10px;border:1px solid var(--border2);border-radius:var(--r);background:transparent;color:var(--muted);cursor:pointer;font-family:'Geist',sans-serif" id="gh-settings-btn">GitHub setup</button>
 </div></div>
@@ -573,10 +575,17 @@ function renderMain(){
     <div style="min-width:0;overflow:hidden;display:flex;flex-direction:column">
       <div class="chart-card" style="flex:1">
         <div class="chart-hdr">
-          <div class="card-title" style="margin:0">Weight over time (lbs)</div>
-          <select class="chart-select" id="day-sel" onchange="renderWC()">`;
+          <div class="card-title" style="margin:0">Exercise progress</div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <select class="chart-select" id="metric-sel" onchange="renderWC()">
+              <option value="volume">Volume</option>
+              <option value="reps">Reps</option>
+              <option value="weight">Weight</option>
+            </select>
+            <select class="chart-select" id="day-sel" onchange="renderWC()">`;
   DD.forEach(d=>{h+=`<option value="${d.key}">${d.label} day</option>`;});
   h+=`</select>
+          </div>
         </div>
         <div id="ex-charts-grid"></div>
       </div>
@@ -637,15 +646,46 @@ function updateStats(){
 
 const cB={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{size:10,family:'Geist Mono'},color:'#a1a1aa',maxRotation:45}},y:{grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{size:10,family:'Geist Mono'},color:'#a1a1aa'}}}};
 
+
+function avgRepNumber(repStr){
+  const nums=String(repStr||'').match(/\d+(\.\d+)?/g);
+  if(!nums||!nums.length)return null;
+  return nums.map(Number).reduce((a,b)=>a+b,0)/nums.length;
+}
+function weightNumber(weightStr){
+  const ws=String(weightStr||'').toLowerCase().trim();
+  if(!ws||ws==='bw'||ws.startsWith('bw'))return null;
+  const nums=ws.match(/\d+(\.\d+)?/g);
+  if(!nums||!nums.length)return null;
+  return parseFloat(nums[0]);
+}
+function metricValueForExercise(e,ex,metric){
+  const r=e.reps!==undefined?e.reps:ex.reps;
+  const s=e.sets!==undefined?e.sets:ex.sets;
+  const w=weightNumber(e.weight);
+  const avgR=avgRepNumber(r);
+  const sets=Math.max(1,parseInt(s)||1);
+  if(metric==='weight')return w;
+  if(metric==='reps')return avgR===null?null:Math.round(avgR*sets*10)/10;
+  return calcVol(e.weight,r,s);
+}
+function metricLabel(metric){
+  return metric==='weight'?'Weight':metric==='reps'?'Total reps':'Volume';
+}
+function metricUnit(metric){
+  return metric==='weight'?' lbs':metric==='reps'?' reps':' lbs';
+}
+
 function renderWC(){
   const sel=document.getElementById('day-sel');if(!sel)return;
+  const metricSel=document.getElementById('metric-sel');
+  const metric=metricSel?metricSel.value:'volume';
   const dk=sel.value,secs=gex(dk);
   const exs=[];secs.forEach(sec=>sec.exercises.forEach(ex=>exs.push(ex)));
   const wl=state.weeks.map(wk=>wk.label);
   const grid=document.getElementById('ex-charts-grid');if(!grid)return;
   Object.keys(charts).forEach(k=>{if(k.startsWith('wex_')){try{charts[k].destroy();}catch(e){}delete charts[k];}});
   grid.innerHTML='';
-  // Use a named class so CSS media queries can target it
   const innerGrid=document.createElement('div');
   innerGrid.className='ex-charts-grid-inner';
   innerGrid.style.cssText='display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:4px;';
@@ -653,19 +693,16 @@ function renderWC(){
 
   exs.forEach((ex,idx)=>{
     const color=LC[idx%LC.length];
-    // Volume = sets * avg_reps * weight per week (use exercise defaults if not logged)
     const data=state.weeks.map(wk=>{
       const e=ge(wk.id,dk,idx);
-      const r=e.reps!==undefined?e.reps:ex.reps;
-      const s=e.sets!==undefined?e.sets:ex.sets;
-      return calcVol(e.weight,r,s);
+      return metricValueForExercise(e,ex,metric);
     });
     if(!data.some(v=>v!==null))return;
     const nonNull=data.filter(v=>v!==null);
     const rawMin=Math.min(...nonNull);
     const rawMax=Math.max(...nonNull);
-    const pad=Math.max((rawMax-rawMin)*0.15,rawMax*0.02,1);
-    const yMin=Math.floor(rawMin-pad);
+    const pad=Math.max((rawMax-rawMin)*0.15,rawMax*0.02,metric==='reps'?1:1);
+    const yMin=Math.max(0,Math.floor(rawMin-pad));
     const yMax=Math.ceil(rawMax+pad);
 
     const card=document.createElement('div');
@@ -673,12 +710,11 @@ function renderWC(){
     const title=document.createElement('div');
     title.style.cssText='display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;';
 
-    // Show latest volume and trend arrow
-    const latestVol=data.filter(v=>v!==null).slice(-1)[0];
-    const prevVol=data.filter(v=>v!==null).slice(-2,-1)[0];
+    const latest=data.filter(v=>v!==null).slice(-1)[0];
+    const prev=data.filter(v=>v!==null).slice(-2,-1)[0];
     let trendHTML='';
-    if(latestVol!==undefined&&prevVol!==undefined){
-      const pct=Math.round((latestVol-prevVol)/prevVol*100);
+    if(latest!==undefined&&prev!==undefined&&prev!==0){
+      const pct=Math.round((latest-prev)/prev*100);
       const col=pct>0?'#16a34a':pct<0?'#dc2626':'#71717a';
       const arrow=pct>0?'&#8593;':pct<0?'&#8595;':'&#8212;';
       trendHTML=`<span style="font-size:11px;color:${col};font-family:'Geist Mono',monospace;font-weight:500">${arrow} ${pct>0?'+':''}${pct}%</span>`;
@@ -703,7 +739,7 @@ function renderWC(){
           titleFont:{size:11,family:'Geist Mono'},bodyFont:{size:12,family:'Geist Mono'},
           callbacks:{
             title:items=>wl[items[0].dataIndex],
-            label:c=>c.parsed.y!==null?' Volume: '+Math.round(c.parsed.y)+' lbs':'--'
+            label:c=>c.parsed.y!==null?' '+metricLabel(metric)+': '+Math.round(c.parsed.y*10)/10+metricUnit(metric):'--'
           }}},
         scales:{
           x:{grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{size:10,family:'Geist Mono'},color:'#a1a1aa',maxRotation:0}},
@@ -717,6 +753,9 @@ function renderWC(){
 
   const cards=innerGrid.querySelectorAll(':scope > div');
   if(cards.length%2!==0&&cards.length>0){cards[cards.length-1].style.gridColumn='1/-1';}
+  if(!cards.length){
+    grid.innerHTML='<div style="padding:32px;text-align:center;color:var(--muted);font-size:13px">No '+metricLabel(metric).toLowerCase()+' data yet for this day.</div>';
+  }
 }
 
 function renderAC(){
@@ -773,7 +812,93 @@ function openWkPicker(){
 function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200);}
 
 
-function resetToSeed(){toast('No sample data in this version');}
+function blankTrainingState(){return {weeks:[],activeWeek:null,activeDay:'overview',customExercises:{},_schemaV:6};}
+function hardRenderBlank(){
+  state=blankTrainingState();
+  try{Object.values(charts||{}).forEach(c=>{try{c.destroy();}catch(e){}});charts={};}catch(e){}
+  const wl=document.getElementById('week-list');if(wl)wl.innerHTML='';
+  const wp=document.getElementById('wk-picker-list');if(wp)wp.innerHTML='';
+  const wc=document.getElementById('week-content');if(wc){wc.innerHTML='';wc.style.display='none';}
+  const es=document.getElementById('empty-state');if(es)es.style.display='';
+  const modal=document.getElementById('wk-picker');if(modal)modal.style.display='none';
+  setSS('local','no weeks');
+}
+function csvEscape(v){return '"'+String(v===undefined||v===null?'':v).replace(/"/g,'""')+'"';}
+function csvUnescapeLine(line){
+  if(!line)return '';
+  line=line.trim();
+  if(line[0]==='"'&&line[line.length-1]==='"')return line.slice(1,-1).replace(/""/g,'"');
+  return line;
+}
+function saveDownloadBlob(blob,fileName){
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download=fileName;a.textContent='Download backup file';
+  a.style.cssText='display:inline-block;margin-top:8px;padding:8px 12px;background:var(--text);color:#fff;border-radius:var(--r);text-decoration:none;font-size:13px';
+  let box=document.getElementById('backup-download-box');
+  if(!box){box=document.createElement('div');box.id='backup-download-box';box.style.cssText='position:fixed;right:16px;bottom:16px;z-index:3000;background:var(--surface);border:1px solid var(--border2);border-radius:var(--rlg);box-shadow:0 8px 24px rgba(0,0,0,.18);padding:14px 16px;max-width:360px;font-family:Geist,sans-serif';document.body.appendChild(box);}
+  box.innerHTML='<div style="font-size:13px;font-weight:600;margin-bottom:4px">Backup ready</div><div style="font-size:12px;color:var(--muted)">If your browser does not auto-download it, click this link.</div>';
+  box.appendChild(a);
+  const close=document.createElement('button');close.textContent='Close';close.onclick=()=>box.remove();close.style.cssText='margin-left:8px;padding:8px 10px;border:1px solid var(--border2);border-radius:var(--r);background:transparent;color:var(--muted);cursor:pointer';box.appendChild(close);
+  setTimeout(()=>{try{a.click();}catch(e){}},0);
+}
+function backupDataFile(){
+  try{
+    const backup=JSON.stringify(state||blankTrainingState());
+    const csv='training_log_json\n'+csvEscape(backup)+'\n';
+    const stamp=new Date().toISOString().slice(0,19).replace(/[:T]/g,'-');
+    saveDownloadBlob(new Blob([csv],{type:'text/csv;charset=utf-8'}),'training-log-backup-'+stamp+'.csv');
+    toast('Backup ready');
+  }catch(e){console.error(e);toast('Backup failed: '+(e.message||'unknown error'));}
+}
+function extractBackupText(text){
+  const trimmed=(text||'').trim();
+  if(!trimmed)throw new Error('File is empty');
+  if(trimmed[0]==='{')return trimmed;
+  const lines=trimmed.split(/\r?\n/);
+  if(lines[0]&&lines[0].toLowerCase().includes('training_log_json'))return csvUnescapeLine(lines[1]||'');
+  const htmlMatch=trimmed.match(/<h2>Raw_JSON<\/h2>[\s\S]*?<td>([\s\S]*?)<\/td>/i);
+  if(htmlMatch){
+    const div=document.createElement('textarea');
+    div.innerHTML=htmlMatch[1];
+    return div.value;
+  }
+  throw new Error('Could not find backup data in this file');
+}
+function normalizeBackupState(raw){
+  const s=raw&&typeof raw==='object'?raw:{};
+  const weeks=Array.isArray(s.weeks)?s.weeks:[];
+  const out={weeks,activeWeek:s.activeWeek||null,activeDay:s.activeDay||'overview',customExercises:(s.customExercises&&typeof s.customExercises==='object')?s.customExercises:{},_schemaV:6};
+  if(!out.weeks.length){out.activeWeek=null;out.activeDay='overview';}
+  else if(!out.weeks.some(w=>w.id===out.activeWeek)){out.activeWeek=out.weeks[out.weeks.length-1].id;}
+  return out;
+}
+async function importBackupFile(ev){
+  const file=ev&&ev.target&&ev.target.files&&ev.target.files[0];
+  if(!file)return;
+  try{
+    const txt=await file.text();
+    const raw=JSON.parse(extractBackupText(txt));
+    state=normalizeBackupState(raw);
+    localStorage.setItem('tl_v6',JSON.stringify(state));
+    localStorage.removeItem(GH_GIST_KEY);
+    renderSidebar();
+    if(state.activeWeek)renderMain();else hardRenderBlank();
+    toast('Backup imported');
+  }catch(e){console.error(e);toast('Import failed: '+(e.message||'bad file'));}
+  finally{ev.target.value='';}
+}
+function clearAllOldData(){
+  if(!confirm('Clear ALL old training data?\n\nThis returns the app to the blank starting screen with no weeks. Back up first if you might need the data.'))return;
+  try{
+    localStorage.removeItem('tl_v6');
+    localStorage.removeItem(GH_GIST_KEY);
+    localStorage.setItem('tl_v6',JSON.stringify(blankTrainingState()));
+  }catch(e){console.warn(e);}
+  hardRenderBlank();
+  toast('Data cleared. Click Start Week 1 to begin.');
+}
+function resetToSeed(){clearAllOldData();}
 function weeksHaveData(weeks){
   return weeks.some(w=>w.data&&Object.values(w.data).some(d=>d&&typeof d==='object'&&Object.values(d).some(e=>e&&typeof e==='object'&&e.weight)));
 }
