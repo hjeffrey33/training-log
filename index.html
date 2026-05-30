@@ -229,21 +229,79 @@ function mkSVGChart(weeks, getData, color){
   const mn=Math.min(...nonNull), mx=Math.max(...nonNull);
   const range=mx-mn||1;
   const xStep=vals.length>1?chartW/(vals.length-1):chartW;
-  const pts=vals.map((v,i)=>v===null?null:{
+  // Fill leading nulls with the first real value so the line extends back to W1.
+  // Trailing nulls remain null (no extension past last real point).
+  const firstRealVal=vals.find(v=>v!==null);
+  const filledVals=vals.map((v,i)=>{
+    if(v!==null)return v;
+    // Only fill if this index is before the first real value
+    const fIdx=vals.findIndex(x=>x!==null);
+    return i<fIdx?firstRealVal:null;
+  });
+  const pts=filledVals.map((v,i)=>v===null?null:{
     x:pad.l+(vals.length>1?i*xStep:chartW/2),
     y:pad.t+chartH-(v-mn)/range*chartH
   });
+
+  // Build segments: connected runs of non-null points.
+  // Null weeks leave a visual gap (no dot, no label) but the line
+  // connects the previous real point directly to the next real point.
+  // Strategy: walk pts, collect segments. A new segment starts only
+  // when there is NO previous real point at all (very first data point).
+  // Within an existing segment, we jump straight to the next real point,
+  // skipping over null positions — this draws the connecting line across the gap.
   let path='', dots='';
-  let prev=null;
+  let segOpen=false; // whether the current SVG path has been started
+
   pts.forEach((p,i)=>{
-    if(!p){prev=null;return}
-    if(prev) path+=`L${p.x.toFixed(1)},${p.y.toFixed(1)}`;
-    else path+=`M${p.x.toFixed(1)},${p.y.toFixed(1)}`;
-    dots+=`<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="4" fill="${color}"/>`;
-    // value label
-    dots+=`<text x="${p.x.toFixed(1)}" y="${(p.y-8).toFixed(1)}" text-anchor="middle" font-size="10" fill="#64748b">${vals[i]}</text>`;
-    prev=p;
+    if(!p){
+      // Null week: mark the gap with a faint dashed vertical tick at the x position
+      // so the user can see which week was skipped, but don't break the line.
+      // The x position still exists; we just don't emit a real data point.
+      return; // line will jump directly from prev real pt to next real pt
+    }
+    if(!segOpen){
+      path+=`M${p.x.toFixed(1)},${p.y.toFixed(1)}`;
+      segOpen=true;
+    } else {
+      path+=`L${p.x.toFixed(1)},${p.y.toFixed(1)}`;
+    }
+    // Only show solid dot + label for weeks with REAL data (not filled-in leading weeks)
+    if(vals[i]!==null){
+      dots+=`<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="4" fill="${color}"/>`;
+      dots+=`<text x="${p.x.toFixed(1)}" y="${(p.y-8).toFixed(1)}" text-anchor="middle" font-size="10" fill="#64748b">${vals[i]}</text>`;
+    }
   });
+
+  // Gap markers: hollow circles ON the interpolated line between real points.
+  // Only shown between the first and last real data point (not before/after).
+  let gapMarkers='';
+  // Re-derive firstReal/lastReal from original vals (before filling)
+  const firstRealIdx=vals.findIndex(v=>v!==null);
+  const lastRealIdx=vals.length-1-[...vals].reverse().findIndex(v=>v!==null);
+  pts.forEach((p,i)=>{
+    if(vals[i]!==null)return;  // real data — no gap circle
+    if(i>=lastRealIdx)return;  // after last real — no gap circle
+    // For leading null weeks (before first real), pts[i] is already filled → use it directly
+    let interpY;
+    if(i<firstRealIdx){
+      interpY=pts[i].y; // flat at first real value
+    } else {
+      // Find surrounding real points and interpolate
+      let prevPt=null,nextPt=null;
+      for(let j=i-1;j>=0;j--){if(vals[j]!==null){prevPt=pts[j];break}}
+      for(let j=i+1;j<pts.length;j++){if(vals[j]!==null){nextPt=pts[j];break}}
+      if(!prevPt||!nextPt)return;
+      const prevI=vals.lastIndexOf(vals.slice(0,i+1).reverse().find(v=>v!==null));
+      // simpler: find index of prevPt in pts
+      const pi=pts.indexOf(prevPt),ni=pts.indexOf(nextPt);
+      const t=(i-pi)/(ni-pi);
+      interpY=prevPt.y+t*(nextPt.y-prevPt.y);
+    }
+    const x=(pad.l+(vals.length>1?i*xStep:chartW/2)).toFixed(1);
+    gapMarkers+=`<circle cx="${x}" cy="${interpY.toFixed(1)}" r="4" fill="var(--surface)" stroke="${color}" stroke-width="1.5"/>`;
+  });
+
   // y axis labels
   let yLabels='';
   [0,0.5,1].forEach(t=>{
@@ -252,15 +310,19 @@ function mkSVGChart(weeks, getData, color){
     yLabels+=`<text x="${pad.l-6}" y="${parseFloat(y)+4}" text-anchor="end" font-size="10" fill="#94a3b8">${v}</text>`;
     yLabels+=`<line x1="${pad.l}" y1="${y}" x2="${W-pad.r}" y2="${y}" stroke="#e2e8f0" stroke-width="1"/>`;
   });
-  // x axis week labels
+
+  // x axis week labels — show all weeks; null weeks are greyed out
   let xLabels='';
   vals.forEach((v,i)=>{
     const x=(pad.l+(vals.length>1?i*xStep:chartW/2)).toFixed(1);
-    xLabels+=`<text x="${x}" y="${H-6}" text-anchor="middle" font-size="10" fill="#94a3b8">W${i+1}</text>`;
+    const col=v===null?'#cbd5e1':'#94a3b8';
+    xLabels+=`<text x="${x}" y="${H-6}" text-anchor="middle" font-size="10" fill="${col}">W${i+1}</text>`;
   });
+
   return `<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:${H}px;display:block">
     ${yLabels}${xLabels}
-    <path d="${path}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round"/>
+    <path d="${path}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round" stroke-dasharray="none"/>
+    ${gapMarkers}
     ${dots}
   </svg>`;
 }
@@ -286,8 +348,16 @@ function renderProgressPanel(){
     exGroups.forEach(sec=>{
       sec.exercises.forEach((ex,_ei)=>{
         const idx=exIdx;
+        const isPullUp=/pull.?up/i.test(ex.name);
         const weights=state.weeks.map(w=>{
           const e=(w.data&&w.data[d.key]&&w.data[d.key][idx]);
+          if(!e)return null;
+          if(isPullUp){
+            // Pull-up: chart reps × weight (weight=0 or blank → treat as 1 = bodyweight)
+            const reps=parseFloat(e.reps)||parseFloat(ex.reps)||null;
+            const weight=parseFloat(e.weight)||1;
+            return reps?Math.round(reps*weight*10)/10:null;
+          }
           return (e&&e.weight)?parseFloat(e.weight)||null:null;
         });
         const hasW=weights.some(v=>v!==null);
