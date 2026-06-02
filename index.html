@@ -21,13 +21,166 @@ header{height:52px;background:var(--surface);border-bottom:1px solid var(--borde
 .ex-card{margin-bottom:10px;overflow:hidden}.ex-top{display:flex;align-items:center;gap:8px;background:var(--surface2);border-bottom:1px solid var(--border);padding:9px 12px}.ex-num{font-family:"Geist Mono",monospace;color:var(--hint);font-size:11px;min-width:22px}.ex-name-input,.ex-muscle-input{border:none;background:transparent;outline:none;color:var(--text)}.ex-name-input{flex:1;min-width:0;font-weight:700}.ex-muscle-input{width:130px;text-align:right;color:var(--muted);font-size:12px}.ex-del-btn{width:34px;height:34px;border:none;background:transparent;color:var(--hint);font-size:20px;border-radius:8px}.ex-del-btn:hover{background:var(--down-bg);color:var(--down)}.ex-fields{display:grid;grid-template-columns:80px 110px 1fr 160px}.ex-field{padding:10px 12px;border-right:1px solid var(--border)}.ex-field:last-child{border-right:none}.ex-field-lbl{font-size:10px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--hint);margin-bottom:5px}.ex-field input{width:100%;border:none;outline:none;background:transparent;color:var(--text);font-size:14px;font-family:"Geist Mono",monospace}.prog-btns{display:flex;gap:5px}.prog-btn{flex:1;border:1px solid var(--border2);background:transparent;color:var(--muted);border-radius:8px;min-height:34px;font-weight:800}.prog-btn.up.active{background:var(--up-bg);color:var(--up);border-color:#bbf7d0}.prog-btn.same.active{background:var(--same-bg);color:var(--same);border-color:#bfdbfe}.prog-btn.down.active{background:var(--down-bg);color:var(--down);border-color:#fecaca}.add-ex-btn{width:100%;border:1px dashed var(--border2);border-radius:var(--rlg);padding:12px;background:transparent;color:var(--muted);margin:2px 0 12px}.add-ex-btn:hover{background:var(--surface);color:var(--text)}
 .htable-wrap{overflow-x:auto}.htable{width:100%;border-collapse:collapse;min-width:560px}.htable th{text-align:left;color:var(--hint);font-size:10px;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid var(--border);padding:8px}.htable td{border-bottom:1px solid var(--border);padding:9px 8px}.chip{display:inline-block;border-radius:999px;padding:2px 8px;font-size:11px;font-weight:800}.chip.up{background:var(--up-bg);color:var(--up)}.chip.dn{background:var(--down-bg);color:var(--down)}.chart-grid{display:grid;grid-template-columns:1fr 320px;gap:14px}.chart-box{height:180px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;padding:12px;text-align:center}.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--text);color:#fff;padding:10px 18px;border-radius:999px;z-index:80;transition:.2s;box-shadow:0 8px 20px rgba(0,0,0,.18)}.toast.show{transform:translateX(-50%) translateY(0)}
 .menu{display:none;position:absolute;right:0;top:calc(100% + 6px);background:var(--surface);border:1px solid var(--border2);border-radius:var(--rlg);box-shadow:0 12px 30px rgba(0,0,0,.16);min-width:210px;z-index:60;overflow:hidden}.menu button,.menu-row{display:block;width:100%;border:none;background:transparent;color:var(--text);text-align:left;padding:12px 15px;font-size:13px}.menu button:hover{background:var(--surface2)}.menu-label{font-size:10px;font-weight:800;color:var(--hint);letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px}
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:50;align-items:center;justify-content:center;padding:18px}.modal-card{background:var(--surface);border-radius:22px;width:100%;max-width:760px;max-height:88vh;overflow:auto;box-shadow:0 14px 40px rgba(0,0,0,.22)}.modal-hdr,.modal-footer{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:1px solid var(--border)}.modal-footer{border-top:1px solid var(--border);border-bottom:none;justify-content:flex-end;gap:8px}.modal-body{padding:18px 22px}.day-palette{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}.day-token-wrap{display:flex;align-items:center;gap:8px}.pill{border:none;border-radius:999px;color:#fff;min-width:74px;max-width:120px;height:58px;padding:0 12px;font-size:14px;line-height:1.05;font-weight:800;display:flex;align-items:center;justify-content:center;text-align:center;box-shadow:0 8px 20px rgba(15,23,42,.12);touch-action:none;cursor:grab;white-space:normal;overflow:hidden;word-break:break-word}.pill:active,.sched-filled:active{cursor:grabbing;transform:scale(.98)}.day-remove{width:42px;height:42px;border:1px solid var(--border2);background:var(--surface);color:var(--muted);border-radius:50%;font-size:18px}.sched-calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;margin-top:12px}.sched-cell{min-height:108px;border:1px dashed var(--border2);border-radius:16px;background:var(--surface2);padding:8px;transition:.12s;cursor:pointer}.sched-cell.drag-over,.sched-cell.touch-over{border-color:var(--text);background:var(--surface3);transform:translateY(-1px)}.drag-ghost{position:fixed;z-index:9999;pointer-events:none;border-radius:999px;color:#fff;min-width:74px;max-width:130px;height:58px;padding:0 12px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:14px;font-weight:800;line-height:1.05;box-shadow:0 14px 28px rgba(15,23,42,.24);opacity:.92;transform:translate(-50%,-50%);word-break:break-word;overflow:hidden}.sched-day-name{font-size:10px;font-weight:800;color:var(--hint);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}.sched-filled{position:relative;border-radius:14px;min-height:66px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;text-align:center;padding:10px 30px 10px 10px;font-size:14px;line-height:1.1;box-shadow:0 8px 20px rgba(15,23,42,.12);touch-action:none;cursor:grab;white-space:normal;overflow:hidden;word-break:break-word}.sched-x{position:absolute;right:6px;top:6px;border:none;border-radius:50%;background:rgba(255,255,255,.25);color:#fff;width:24px;height:24px;font-size:16px}.input{border:1px solid var(--border2);background:var(--surface2);color:var(--text);border-radius:var(--r);padding:10px;width:100%}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:50;align-items:center;justify-content:center;padding:18px}.modal-card{background:var(--surface);border-radius:22px;width:100%;max-width:760px;max-height:88vh;overflow:auto;box-shadow:0 14px 40px rgba(0,0,0,.22)}.modal-hdr,.modal-footer{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:1px solid var(--border)}.modal-footer{border-top:1px solid var(--border);border-bottom:none;justify-content:flex-end;gap:8px}.modal-body{padding:18px 22px}.day-palette{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}.day-token-wrap{display:flex;align-items:center;gap:8px}.pill{border:none;border-radius:999px;color:#fff;min-width:74px;max-width:120px;height:58px;padding:0 12px;font-size:14px;line-height:1.05;font-weight:800;display:flex;align-items:center;justify-content:center;text-align:center;box-shadow:0 8px 20px rgba(15,23,42,.12);touch-action:none;cursor:grab;white-space:normal;overflow:hidden;word-break:break-word;user-select:none;-webkit-user-select:none}.pill:active,.sched-filled:active{cursor:grabbing;transform:scale(.98)}.day-remove{width:42px;height:42px;border:1px solid var(--border2);background:var(--surface);color:var(--muted);border-radius:50%;font-size:18px}.sched-calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;margin-top:12px}.sched-cell{min-height:108px;border:1px dashed var(--border2);border-radius:16px;background:var(--surface2);padding:8px;transition:.12s;cursor:pointer}.sched-cell.drag-over,.sched-cell.touch-over{border-color:var(--text);background:var(--surface3);transform:translateY(-1px)}.drag-ghost{position:fixed;z-index:9999;pointer-events:none;border-radius:999px;color:#fff;min-width:74px;max-width:130px;height:58px;padding:0 12px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:14px;font-weight:800;line-height:1.05;box-shadow:0 14px 28px rgba(15,23,42,.24);opacity:.92;transform:translate(-50%,-50%);word-break:break-word;overflow:hidden;user-select:none;-webkit-user-select:none}.sched-day-name{font-size:10px;font-weight:800;color:var(--hint);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}.sched-filled{position:relative;border-radius:8px;min-height:0;display:inline-flex;align-items:center;color:#fff;font-weight:700;text-align:left;padding:6px 10px;font-size:12px;line-height:1.3;touch-action:none;cursor:grab;white-space:nowrap;overflow:hidden;user-select:none;-webkit-user-select:none}.sched-x{position:static;border:none;border-radius:50%;background:rgba(0,0,0,.18);color:#fff;width:15px;height:15px;font-size:10px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;padding:0;line-height:1;margin-left:4px}.input{border:1px solid var(--border2);background:var(--surface2);color:var(--text);border-radius:var(--r);padding:10px;width:100%}
 @container (max-width:620px){.ov-grid,.ov-grid[style]{display:grid!important;grid-template-columns:repeat(6,1fr)!important;gap:10px!important;margin-bottom:16px!important;justify-content:start!important}.ov-card{grid-column:span 2;min-width:0}.ov-card:nth-child(4):nth-last-child(2){grid-column:2 / span 2}.ov-card:nth-child(5):nth-last-child(1){grid-column:4 / span 2}.ov-card:nth-child(4):last-child{grid-column:3 / span 2}}
 @media(max-width:960px){#wk-picker-btn{display:inline-flex!important;align-items:center}.sidebar{display:none}.app{display:block;height:calc(100vh - 52px)}.main{height:100%;width:100%;overflow-x:hidden}.inner{padding:20px 24px;max-width:100%;overflow-x:hidden}}
 @media(max-width:760px){.stats-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.stat-card{min-width:0}}
 @media(max-width:900px){.chart-grid{grid-template-columns:1fr}.week-inputs-row{grid-template-columns:1fr}.ex-fields{grid-template-columns:70px 100px 1fr}.ex-fields .ex-field:nth-child(4){grid-column:1/-1;border-top:1px solid var(--border);border-right:none}}
-@media(max-width:480px){body{min-height:100dvh}header{height:54px;padding:8px 12px}.logo{font-size:13px}.app{height:calc(100dvh - 54px)}.inner{padding:12px}.stats-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.stat-card{padding:11px}.stat-value{font-size:22px}.tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.tab{width:100%;padding:8px 6px}.ov-grid,.ov-grid[style]{display:grid!important;grid-template-columns:repeat(6,1fr)!important;gap:10px!important;margin-bottom:16px!important;justify-content:start!important}.ov-card{grid-column:span 2;min-width:0}.ov-card:nth-child(4):nth-last-child(2){grid-column:2 / span 2}.ov-card:nth-child(5):nth-last-child(1){grid-column:4 / span 2}.ov-card:nth-child(4):last-child{grid-column:3 / span 2}.ov-card{padding:12px 9px;min-height:118px}.ov-type{font-size:13px}.ov-name,.ov-meta{font-size:11px}.week-input-card,.history-card,.chart-card{padding:13px}.day-hdr{display:grid;grid-template-columns:auto 1fr;gap:8px}.date-wrap{grid-column:1/-1;margin-left:0;display:grid;grid-template-columns:44px 1fr}.date-wrap input{width:100%}.ex-top{display:grid;grid-template-columns:26px 1fr 38px;gap:6px 8px}.ex-muscle-input{grid-column:2/4;width:100%;text-align:left;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:7px}.ex-del-btn{grid-column:3;grid-row:1}.ex-fields{grid-template-columns:.75fr .95fr 1.3fr}.ex-field{padding:9px 8px}.ex-fields .ex-field:nth-child(3){border-right:none}.ex-field-lbl{font-size:9px;white-space:nowrap}.prog-btn{min-height:42px}.cal-days{grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}.cal-day-btn{padding:7px 2px}.sched-calendar{display:flex;overflow-x:auto}.sched-cell{flex:0 0 118px;min-height:118px}.pill{min-width:78px;height:62px}.sched-filled{min-height:76px}.modal{padding:10px;align-items:flex-start}.modal-card{max-height:calc(100dvh - 20px)}.toast{bottom:max(24px,env(safe-area-inset-bottom))}}
-@media(max-width:360px){.ov-grid,.ov-grid[style]{display:grid!important;grid-template-columns:1fr!important}.cal-days{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+/* === Comprehensive Visual & Responsive Polish === */
+:root{--shadow:0 10px 30px rgba(15,23,42,.08)}
+html{scroll-behavior:smooth}
+body{text-rendering:optimizeLegibility}
+
+/* Cards hover */
+.stat-card,.week-input-card,.history-card,.chart-card,.ex-card,.ov-card{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.stat-card:hover,.week-input-card:hover,.history-card:hover,.chart-card:hover,.ov-card:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(15,23,42,.10)}
+.ex-card:focus-within,.week-input-card:focus-within{border-color:rgba(37,99,235,.35)}
+
+/* ex-top: name + right controls */
+.ex-top{flex-wrap:wrap;gap:0}
+.ex-top .ex-name-input{min-width:100px;flex:1}
+.ex-top-right{display:flex;align-items:center;gap:0;flex-shrink:0}
+
+/* Type badge — styled pill that cycles on click */
+.ex-type-badge{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:0 10px;height:100%;min-height:38px;
+  border:none;border-left:1px solid var(--border);border-right:1px solid var(--border);
+  background:transparent;cursor:pointer;
+  font-size:11px;font-weight:700;letter-spacing:.04em;
+  color:var(--muted);font-family:inherit;
+  transition:background .12s,color .12s;
+  white-space:nowrap;flex-shrink:0;
+}
+.ex-type-badge:hover{background:var(--surface2);color:var(--text)}
+.ex-type-badge .type-dot{
+  width:6px;height:6px;border-radius:50%;flex-shrink:0;
+}
+/* Muscle input — seamless inline text field */
+.ex-muscle-input{
+  width:130px!important;border:none!important;background:transparent!important;
+  outline:none!important;color:var(--muted)!important;font-size:12px!important;
+  padding:0 10px!important;text-align:left!important;height:100%;min-height:38px;
+  transition:color .12s;
+}
+.ex-muscle-input:focus{color:var(--text)!important}
+.ex-muscle-input::placeholder{color:var(--hint)!important}
+
+.ex-type-sel{display:none!important}/* hidden — replaced by badge */
+
+/* ex-fields: 4-col default, graceful collapse */
+.ex-fields{display:grid;grid-template-columns:72px 100px 1fr 160px;min-width:0}
+.ex-field{padding:10px 12px;border-right:1px solid var(--border);min-width:0}
+.ex-field:last-child{border-right:none}
+.ex-field-lbl{font-size:10px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--hint);margin-bottom:5px;white-space:nowrap}
+.ex-field input,.ex-field select{width:100%;border:none;outline:none;background:transparent;color:var(--text);font-size:14px;font-family:"Geist Mono",monospace;min-width:0}
+
+/* Tabs: scrollable row on medium, grid on small */
+.tabs{display:flex;gap:6px;flex-wrap:nowrap;overflow-x:auto;margin-bottom:16px;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:2px}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex-shrink:0}
+
+/* Charts */
+.chart-box svg,.chart-box svg *{max-width:100%}
+.htable-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+
+/* Notes panel last row no border */
+#panel-notes > div > div:last-child{border-bottom:none}
+
+button,input,select,textarea{max-width:100%;font-family:inherit}
+.ex-name-input,.ex-muscle-input,.ex-field input{min-width:0}
+
+/* Large screens */
+@media(min-width:1400px){
+  .inner{max-width:1600px;margin:0 auto}
+  .ov-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+}
+
+/* Modal sizing */
+@media(max-width:768px){
+  .modal-card,#sched-modal-card{width:100%;max-width:none!important}
+  .header-right{gap:6px}
+  .hbtn{padding:8px 10px}
+  .bw-input{width:100%}
+}
+
+/* Tablet: chart grid stacks, inputs stack, ex-fields 3-col */
+@media(max-width:900px){
+  .chart-grid{grid-template-columns:1fr}
+  .week-inputs-row{grid-template-columns:1fr}
+  .ex-fields{grid-template-columns:70px 100px 1fr}
+  .ex-fields .ex-field:nth-child(4){grid-column:1/-1;border-top:1px solid var(--border);border-right:none}
+}
+
+/* Phablet: stats 2-col */
+@media(max-width:760px){
+  .stats-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .stat-card{min-width:0}
+}
+
+/* Small mobile */
+@media(max-width:600px){
+  .tab{font-size:12px;padding:6px 10px}
+  .stat-value{font-size:20px}
+  .day-pill{width:max-content}
+  .ex-fields{grid-template-columns:1fr 1fr}
+  .ex-fields .ex-field:nth-child(3){border-right:none}
+  .ex-fields .ex-field:nth-child(4){grid-column:1/-1;border-top:1px solid var(--border);border-right:none}
+  .ex-top{gap:4px 6px}
+  .ex-muscle-input{width:90px!important}
+}
+
+/* Narrow mobile */
+@media(max-width:480px){
+  body{min-height:100dvh}
+  header{height:54px;padding:8px 12px}
+  .logo{font-size:13px}
+  .app{height:calc(100dvh - 54px)}
+  .inner{padding:12px}
+  .stats-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .stat-card{padding:11px}
+  .stat-value{font-size:20px}
+  .ov-grid,.ov-grid[style]{display:grid!important;grid-template-columns:repeat(6,1fr)!important;gap:10px!important;margin-bottom:16px!important;justify-content:start!important}
+  .ov-card{grid-column:span 2;min-width:0}
+  .ov-card:nth-child(4):nth-last-child(2){grid-column:2 / span 2}
+  .ov-card:nth-child(5):nth-last-child(1){grid-column:4 / span 2}
+  .ov-card:nth-child(4):last-child{grid-column:3 / span 2}
+  .ov-card{padding:12px 9px;min-height:110px}
+  .ov-type{font-size:13px}
+  .ov-name,.ov-meta{font-size:11px}
+  .week-input-card,.history-card,.chart-card{padding:13px}
+  .day-hdr{display:grid;grid-template-columns:auto 1fr;gap:8px}
+  .date-wrap{grid-column:1/-1;margin-left:0;display:grid;grid-template-columns:44px 1fr}
+  .date-wrap input{width:100%}
+  .ex-top{display:grid;grid-template-columns:24px 1fr auto;gap:4px 8px;align-items:center}
+  .ex-top .ex-name-input{min-width:0}
+  .ex-top-right{display:flex;align-items:center;gap:0}
+  .ex-muscle-input{width:80px!important}
+  .ex-del-btn{grid-column:3;grid-row:1}
+  .ex-fields{grid-template-columns:1fr 1fr!important}
+  .ex-fields .ex-field{padding:9px 8px}
+  .ex-fields .ex-field:nth-child(odd){border-right:1px solid var(--border)}
+  .ex-fields .ex-field:nth-child(even){border-right:none}
+  .ex-fields .ex-field:nth-child(4){grid-column:1/-1;border-top:1px solid var(--border);border-right:none}
+  .ex-field-lbl{font-size:9px}
+  .prog-btn{min-height:40px}
+  .cal-days{grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+  .cal-day-btn{padding:7px 2px}
+  .sched-calendar{display:flex;overflow-x:auto}
+  .sched-cell{flex:0 0 118px;min-height:118px}
+  .pill{min-width:78px;height:62px}
+  .modal{padding:10px;align-items:flex-start}
+  .modal-card{max-height:calc(100dvh - 20px)}
+  .toast{bottom:max(24px,env(safe-area-inset-bottom))}
+}
+
+@media(max-width:360px){
+  .ov-grid,.ov-grid[style]{grid-template-columns:1fr!important}
+  .cal-days{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .stats-row{grid-template-columns:1fr}
+}
+
 </style>
 </head>
 <body>
@@ -79,25 +232,52 @@ header{height:52px;background:var(--surface);border-bottom:1px solid var(--borde
   </div>
 </div>
 
-<div id="schedule-modal" class="modal">
-  <div class="modal-card">
-    <div class="modal-hdr">
-      <div><b>Schedule</b><div style="color:var(--muted);font-size:12px;margin-top:3px">Build your training week</div></div>
-      <button class="hbtn" id="close-schedule">×</button>
-    </div>
-    <div class="modal-body">
-      <label style="font-weight:800;font-size:13px">Create training days</label>
-      <div style="display:flex;gap:8px;margin-top:8px">
-        <input id="new-day-name" class="input" placeholder="e.g. Push, Pull, Legs" onkeydown="if(event.key==='Enter'){event.preventDefault();addScheduleDay()}">
-        <button class="btn-primary" id="add-day-btn">Add</button>
+<div id="schedule-modal" class="modal" style="align-items:center;padding:16px">
+  <div id="sched-modal-card" style="background:var(--bg);border-radius:24px;width:100%;max-width:820px;max-height:92vh;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(15,23,42,.22);overflow:hidden">
+
+    <!-- Header bar -->
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 22px 16px;background:var(--surface);border-bottom:1px solid var(--border);flex-shrink:0">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:32px;height:32px;border-radius:10px;background:var(--text);display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px">⊞</div>
+        <div>
+          <div style="font-size:15px;font-weight:700;letter-spacing:-.2px">Weekly Schedule</div>
+          <div style="font-size:11px;color:var(--hint);margin-top:1px">Drag days onto the calendar · up to 3 per day</div>
+        </div>
       </div>
-      <div class="day-palette" id="day-palette"></div>
-      <div style="font-weight:800;font-size:13px;margin-top:20px">Assign days</div>
-      <div class="sched-calendar" id="sched-calendar"></div>
+      <button id="close-schedule" style="width:30px;height:30px;border-radius:50%;border:none;background:var(--surface2);color:var(--muted);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center">×</button>
     </div>
-    <div class="modal-footer">
-      <button class="hbtn" id="cancel-schedule">Cancel</button>
-      <button class="btn-primary" id="save-schedule">Save schedule</button>
+
+    <!-- Two-column body -->
+    <div style="display:grid;grid-template-columns:220px 1fr;flex:1;overflow:hidden;min-height:0">
+
+      <!-- Left: day types -->
+      <div style="border-right:1px solid var(--border);background:var(--surface);display:flex;flex-direction:column;overflow:hidden">
+        <div style="padding:14px 16px 8px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--hint);flex-shrink:0">Training Days</div>
+        <div id="day-palette" style="flex:1;overflow-y:auto;padding:4px 8px 8px"></div>
+        <!-- Add new day -->
+        <div style="padding:10px 10px;border-top:1px solid var(--border);flex-shrink:0">
+          <input id="new-day-name" placeholder="Day name…" onkeydown="if(event.key==='Enter'){event.preventDefault();addScheduleDay()}"
+            style="width:100%;border:1px solid var(--border2);border-radius:8px;padding:7px 9px;font-size:12px;background:var(--surface2);color:var(--text);font-family:inherit;outline:none;margin-bottom:5px">
+          <div style="display:flex;gap:5px">
+            <button id="add-day-btn" onclick="addScheduleDay(false)"
+              style="flex:1;border:none;background:var(--text);color:#fff;border-radius:8px;padding:6px 8px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit">+ Training day</button>
+            <button id="add-extra-day-btn" onclick="addScheduleDay(true)"
+              style="flex:1;border:1px solid var(--border2);background:transparent;color:var(--muted);border-radius:8px;padding:6px 8px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit">+ Additional</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: week grid -->
+      <div style="overflow-y:auto;padding:12px 14px;background:var(--bg)">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--hint);margin-bottom:8px">Week</div>
+        <div id="sched-calendar" style="display:flex;flex-direction:column;gap:4px"></div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="display:flex;justify-content:flex-end;gap:8px;padding:14px 22px;background:var(--surface);border-top:1px solid var(--border);flex-shrink:0">
+      <button id="cancel-schedule" style="border:1px solid var(--border2);background:transparent;color:var(--muted);border-radius:10px;padding:9px 18px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">Cancel</button>
+      <button id="save-schedule" style="border:none;background:var(--text);color:#fff;border-radius:10px;padding:9px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">Save schedule</button>
     </div>
   </div>
 </div>
@@ -124,28 +304,47 @@ function esc(s){return String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt
 function escAttr(s){return esc(s).replace(/'/g,'&#39;')}
 function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}
 function setSS(status,text){const d=$('sync-dot'),l=$('sync-label');if(d)d.className='sync-dot '+(status||'');if(l)l.textContent=text||'local'}
-function cloneDefaultSchedule(){return{days:DEFAULT_DAYS.map(d=>({...d})),assignments:{0:'push',1:'pull',2:'legs',3:'upper',4:'lower'}}}
+function cloneDefaultSchedule(){return{days:DEFAULT_DAYS.map(d=>({...d})),assignments:{0:['push'],1:['pull'],2:['legs'],3:['upper'],4:['lower']},extras:{}}}
 function getSchedule(){
   if(!state.scheduleConfig)state.scheduleConfig=cloneDefaultSchedule();
   if(!Array.isArray(state.scheduleConfig.days))state.scheduleConfig.days=DEFAULT_DAYS.map(d=>({...d}));
   if(!state.scheduleConfig.assignments)state.scheduleConfig.assignments={};
+  if(!state.scheduleConfig.extras)state.scheduleConfig.extras={};
   return state.scheduleConfig
 }
 function getActiveDays(){
   const sc=getSchedule();
-  const used=[...new Set(Object.values(sc.assignments).filter(Boolean))];
+  const used=[...new Set(Object.values(sc.assignments).flat().filter(Boolean))];
+  return sc.days.filter(d=>used.includes(d.key)&&!d.isAdditional)
+}
+function getAllAssignedDays(){
+  const sc=getSchedule();
+  const used=[...new Set(Object.values(sc.assignments).flat().filter(Boolean))];
   return sc.days.filter(d=>used.includes(d.key))
 }
 function getDay(key){
   return getSchedule().days.find(d=>d.key===key)||DEFAULT_DAYS.find(d=>d.key===key)||{key,label:key,fullname:key,color:'#64748b',tc:'#fff'}
 }
+// EX_TYPES: what fields each type shows
+// weighted: sets + reps + weight + progress
+// timed:    sets + duration (no reps/weight)
+// bodyweight: sets + reps (no weight)
+// free:     just a note field
+const EX_TYPES=['weighted','timed','bodyweight','free'];
+const EX_TYPE_LABELS={weighted:'Weighted',timed:'Timed',bodyweight:'Bodyweight',free:'Free note'};
 function defaultExercises(){
-  return[{title:null,exercises:[{name:'Exercise 1',muscle:'',sets:3,reps:'8-12'},{name:'Exercise 2',muscle:'',sets:3,reps:'8-12'}]}]
+  return[{title:null,exercises:[{name:'Exercise 1',muscle:'',sets:3,reps:'8-12',type:'weighted'},{name:'Exercise 2',muscle:'',sets:3,reps:'8-12',type:'weighted'}]}]
 }
 function gex(key){
   state.customExercises=state.customExercises||{};
   if(!state.customExercises[key])state.customExercises[key]=defaultExercises();
+  // Migrate old exercises without type
+  state.customExercises[key].forEach(sec=>sec.exercises.forEach(ex=>{if(!ex.type)ex.type='weighted'}));
   return state.customExercises[key]
+}
+function upExType(dk,si,ei,val){gex(dk)[si].exercises[ei].type=val;scheduleSave();
+  const isAdditional=getSchedule().days.find(d=>d.key===dk&&d.isAdditional);
+  renderMain();isAdditional?switchTab('supplementary',true):openDay(dk);
 }
 function gw(id){return state.weeks.find(w=>w.id===id)}
 function ge(wid,dk,idx){const w=gw(wid);return(w&&w.data&&w.data[dk]&&w.data[dk][String(idx)])||{}}
@@ -155,14 +354,23 @@ function normaliseState(raw){
   s.customExercises=s.customExercises&&typeof s.customExercises==='object'?s.customExercises:{};
   s.scheduleConfig=s.scheduleConfig&&typeof s.scheduleConfig==='object'?s.scheduleConfig:cloneDefaultSchedule();
   if(!Array.isArray(s.scheduleConfig.days))s.scheduleConfig.days=DEFAULT_DAYS.map(d=>({...d}));
-  if(!s.scheduleConfig.assignments)s.scheduleConfig.assignments={0:'push',1:'pull',2:'legs',3:'upper',4:'lower'};
+  if(!s.scheduleConfig.assignments)s.scheduleConfig.assignments={0:['push'],1:['pull'],2:['legs'],3:['upper'],4:['lower']};
+  // Migrate: convert any string assignment values to arrays
+  Object.keys(s.scheduleConfig.assignments).forEach(k=>{
+    const v=s.scheduleConfig.assignments[k];
+    if(typeof v==='string')s.scheduleConfig.assignments[k]=[v];
+    else if(!Array.isArray(v))delete s.scheduleConfig.assignments[k];
+  });
+  if(!s.scheduleConfig.extras)s.scheduleConfig.extras={};
   s.weeks.forEach((w,i)=>{
     w.id=w.id||('w'+Date.now()+i);
     w.num=w.num||i+1;
     w.label=w.label||('Week '+w.num);
     w.startDate=w.startDate||today();
     w.data=w.data||{};
-    w.calories=w.calories||{}
+    w.calories=w.calories||{};
+    w.supplementary=w.supplementary||{};
+    w.notes=w.notes||{};
   });
   if(s.activeWeek&&!s.weeks.some(w=>w.id===s.activeWeek))s.activeWeek=null;
   if(!s.activeWeek&&s.weeks.length)s.activeWeek=s.weeks[s.weeks.length-1].id;
@@ -223,18 +431,22 @@ function mkSVGChart(weeks, getData, color){
   const vals = weeks.map(getData);
   const hasData = vals.some(v=>v!==null);
   if(!hasData) return '<div class="chart-box" style="height:120px">No data logged yet</div>';
-  const W=420, H=120, pad={t:12,r:12,b:24,l:42};
-  const chartW=W-pad.l-pad.r, chartH=H-pad.t-pad.b;
+
+  // Fully responsive: use a fixed viewBox with preserveAspectRatio so labels never get cut off.
+  // Left padding is generous enough for any numeric label; right padding avoids dot clipping.
+  const VW=560, VH=140;
+  const pad={t:18,r:24,b:28,l:56};
+  const chartW=VW-pad.l-pad.r, chartH=VH-pad.t-pad.b;
+
   const nonNull=vals.filter(v=>v!==null);
   const mn=Math.min(...nonNull), mx=Math.max(...nonNull);
   const range=mx-mn||1;
   const xStep=vals.length>1?chartW/(vals.length-1):chartW;
-  // Fill leading nulls with the first real value so the line extends back to W1.
-  // Trailing nulls remain null (no extension past last real point).
+
+  // Fill leading nulls with the first real value
   const firstRealVal=vals.find(v=>v!==null);
   const filledVals=vals.map((v,i)=>{
     if(v!==null)return v;
-    // Only fill if this index is before the first real value
     const fIdx=vals.findIndex(x=>x!==null);
     return i<fIdx?firstRealVal:null;
   });
@@ -243,57 +455,41 @@ function mkSVGChart(weeks, getData, color){
     y:pad.t+chartH-(v-mn)/range*chartH
   });
 
-  // Build segments: connected runs of non-null points.
-  // Null weeks leave a visual gap (no dot, no label) but the line
-  // connects the previous real point directly to the next real point.
-  // Strategy: walk pts, collect segments. A new segment starts only
-  // when there is NO previous real point at all (very first data point).
-  // Within an existing segment, we jump straight to the next real point,
-  // skipping over null positions — this draws the connecting line across the gap.
   let path='', dots='';
-  let segOpen=false; // whether the current SVG path has been started
+  let segOpen=false;
 
   pts.forEach((p,i)=>{
-    if(!p){
-      // Null week: mark the gap with a faint dashed vertical tick at the x position
-      // so the user can see which week was skipped, but don't break the line.
-      // The x position still exists; we just don't emit a real data point.
-      return; // line will jump directly from prev real pt to next real pt
-    }
-    if(!segOpen){
-      path+=`M${p.x.toFixed(1)},${p.y.toFixed(1)}`;
-      segOpen=true;
-    } else {
-      path+=`L${p.x.toFixed(1)},${p.y.toFixed(1)}`;
-    }
-    // Only show solid dot + label for weeks with REAL data (not filled-in leading weeks)
+    if(!p)return;
+    if(!segOpen){path+=`M${p.x.toFixed(1)},${p.y.toFixed(1)}`;segOpen=true;}
+    else{path+=`L${p.x.toFixed(1)},${p.y.toFixed(1)}`;}
     if(vals[i]!==null){
-      dots+=`<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="4" fill="${color}"/>`;
-      dots+=`<text x="${p.x.toFixed(1)}" y="${(p.y-8).toFixed(1)}" text-anchor="middle" font-size="10" fill="#64748b">${vals[i]}</text>`;
+      // Format label: drop trailing .0 for cleanliness, keep one decimal otherwise
+      const rawVal=vals[i];
+      const labelVal=Number.isInteger(rawVal)?rawVal:(+rawVal.toFixed(1));
+      const labelStr=String(labelVal);
+      dots+=`<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="4.5" fill="${color}"/>`;
+      // Place label above dot; if near top edge, place below instead
+      const aboveY=p.y-10;
+      const labelY=aboveY<pad.t?p.y+18:aboveY;
+      dots+=`<text x="${p.x.toFixed(1)}" y="${labelY.toFixed(1)}" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">${labelStr}</text>`;
     }
   });
 
-  // Gap markers: hollow circles ON the interpolated line between real points.
-  // Only shown between the first and last real data point (not before/after).
+  // Gap markers
   let gapMarkers='';
-  // Re-derive firstReal/lastReal from original vals (before filling)
   const firstRealIdx=vals.findIndex(v=>v!==null);
   const lastRealIdx=vals.length-1-[...vals].reverse().findIndex(v=>v!==null);
   pts.forEach((p,i)=>{
-    if(vals[i]!==null)return;  // real data — no gap circle
-    if(i>=lastRealIdx)return;  // after last real — no gap circle
-    // For leading null weeks (before first real), pts[i] is already filled → use it directly
+    if(vals[i]!==null)return;
+    if(i>=lastRealIdx)return;
     let interpY;
     if(i<firstRealIdx){
-      interpY=pts[i].y; // flat at first real value
+      interpY=pts[i]?pts[i].y:pad.t+chartH/2;
     } else {
-      // Find surrounding real points and interpolate
       let prevPt=null,nextPt=null;
       for(let j=i-1;j>=0;j--){if(vals[j]!==null){prevPt=pts[j];break}}
       for(let j=i+1;j<pts.length;j++){if(vals[j]!==null){nextPt=pts[j];break}}
       if(!prevPt||!nextPt)return;
-      const prevI=vals.lastIndexOf(vals.slice(0,i+1).reverse().find(v=>v!==null));
-      // simpler: find index of prevPt in pts
       const pi=pts.indexOf(prevPt),ni=pts.indexOf(nextPt);
       const t=(i-pi)/(ni-pi);
       interpY=prevPt.y+t*(nextPt.y-prevPt.y);
@@ -302,84 +498,114 @@ function mkSVGChart(weeks, getData, color){
     gapMarkers+=`<circle cx="${x}" cy="${interpY.toFixed(1)}" r="4" fill="var(--surface)" stroke="${color}" stroke-width="1.5"/>`;
   });
 
-  // y axis labels
+  // Y-axis labels: 3 gridlines
   let yLabels='';
   [0,0.5,1].forEach(t=>{
-    const v=(mn+range*t).toFixed(1).replace('.0','');
+    const raw=mn+range*t;
+    const v=Number.isInteger(raw)?raw:(+raw.toFixed(1));
     const y=(pad.t+chartH-t*chartH).toFixed(1);
-    yLabels+=`<text x="${pad.l-6}" y="${parseFloat(y)+4}" text-anchor="end" font-size="10" fill="#94a3b8">${v}</text>`;
-    yLabels+=`<line x1="${pad.l}" y1="${y}" x2="${W-pad.r}" y2="${y}" stroke="#e2e8f0" stroke-width="1"/>`;
+    yLabels+=`<text x="${pad.l-8}" y="${parseFloat(y)+4}" text-anchor="end" font-size="10" fill="#94a3b8">${v}</text>`;
+    yLabels+=`<line x1="${pad.l}" y1="${y}" x2="${VW-pad.r}" y2="${y}" stroke="#e2e8f0" stroke-width="1"/>`;
   });
 
-  // x axis week labels — show all weeks; null weeks are greyed out
+  // X-axis week labels — skip labels when too crowded (>12 weeks, show every 2nd)
   let xLabels='';
   vals.forEach((v,i)=>{
+    if(vals.length>12&&i%2!==0)return;
     const x=(pad.l+(vals.length>1?i*xStep:chartW/2)).toFixed(1);
     const col=v===null?'#cbd5e1':'#94a3b8';
-    xLabels+=`<text x="${x}" y="${H-6}" text-anchor="middle" font-size="10" fill="${col}">W${i+1}</text>`;
+    xLabels+=`<text x="${x}" y="${VH-6}" text-anchor="middle" font-size="10" fill="${col}">W${i+1}</text>`;
   });
 
-  return `<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:${H}px;display:block">
+  // Use preserveAspectRatio="xMidYMid meet" so chart scales proportionally,
+  // and set height via CSS max so it never squishes at large sizes.
+  return `<svg viewBox="0 0 ${VW} ${VH}" preserveAspectRatio="xMidYMid meet"
+      style="width:100%;height:auto;min-height:${VH*0.6}px;max-height:${VH}px;display:block">
     ${yLabels}${xLabels}
-    <path d="${path}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round" stroke-dasharray="none"/>
+    <path d="${path}" fill="none" stroke="${color}" stroke-width="2.5" stroke-linejoin="round"/>
     ${gapMarkers}
     ${dots}
   </svg>`;
 }
 
+function renderDayCharts(d){
+  const exGroups=gex(d.key);
+  let exRows='';
+  let exIdx=0;
+  exGroups.forEach(sec=>{
+    sec.exercises.forEach((ex,_ei)=>{
+      const idx=exIdx;
+      const isPullUp=/pull.?up/i.test(ex.name);
+      const weights=state.weeks.map(w=>{
+        const e=(w.data&&w.data[d.key]&&w.data[d.key][idx]);
+        if(!e)return null;
+        if(isPullUp){
+          const reps=parseFloat(e.reps)||parseFloat(ex.reps)||null;
+          const weight=parseFloat(e.weight)||1;
+          return reps?Math.round(reps*weight*10)/10:null;
+        }
+        return (e&&e.weight)?parseFloat(e.weight)||null:null;
+      });
+      const hasW=weights.some(v=>v!==null);
+      exRows+=`<div class="chart-card" style="margin-bottom:10px;padding:14px 16px">
+        <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:8px">${esc(ex.name)}</div>
+        ${hasW?mkSVGChart(state.weeks,(_,i)=>weights[i],d.color):'<div class="chart-box" style="height:100px;font-size:12px">No weight logged yet</div>'}
+      </div>`;
+      exIdx++
+    })
+  });
+  return exRows||'<div class="chart-box">No exercises set up.</div>';
+}
+
+function switchProgressDay(key){
+  window._progressDay=key;
+  const active=getActiveDays();
+  const d=active.find(x=>x.key===key)||active[0];
+  if(!d)return;
+  // Update tab styles
+  document.querySelectorAll('.prog-day-tab').forEach(t=>{
+    const isActive=t.dataset.dayKey===key;
+    t.style.background=isActive?d.color:'transparent';
+    t.style.color=isActive?'#fff':'var(--muted)';
+    t.style.borderColor=isActive?d.color:'var(--border2)';
+  });
+  // Re-render chart area
+  const chartArea=document.getElementById('prog-chart-area');
+  if(chartArea) chartArea.innerHTML=renderDayCharts(d);
+}
+
 function renderProgressPanel(){
   const active=getActiveDays();
   if(!active.length) return '<div class="chart-box">Set up a schedule first to track progress.</div>';
-  
-  // Body weight chart
+
   const bwVals=state.weeks.map(w=>w.bodyWeight?Number(w.bodyWeight):null);
   const hasBW=bwVals.some(v=>v!==null);
-  
-  // Per-day exercise weight charts
-  let dayCharts='';
-  
-  // Day selector
-  const firstDay=active[0];
-  
-  active.forEach(d=>{
-    const exGroups=gex(d.key);
-    let exRows='';
-    let exIdx=0;
-    exGroups.forEach(sec=>{
-      sec.exercises.forEach((ex,_ei)=>{
-        const idx=exIdx;
-        const isPullUp=/pull.?up/i.test(ex.name);
-        const weights=state.weeks.map(w=>{
-          const e=(w.data&&w.data[d.key]&&w.data[d.key][idx]);
-          if(!e)return null;
-          if(isPullUp){
-            // Pull-up: chart reps × weight (weight=0 or blank → treat as 1 = bodyweight)
-            const reps=parseFloat(e.reps)||parseFloat(ex.reps)||null;
-            const weight=parseFloat(e.weight)||1;
-            return reps?Math.round(reps*weight*10)/10:null;
-          }
-          return (e&&e.weight)?parseFloat(e.weight)||null:null;
-        });
-        const hasW=weights.some(v=>v!==null);
-        exRows+=`<div style="margin-bottom:16px">
-          <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:6px">${esc(ex.name)}</div>
-          ${hasW?mkSVGChart(state.weeks,(_,i)=>weights[i],d.color):'<div class="chart-box" style="height:100px;font-size:12px">No weight logged yet</div>'}
-        </div>`;
-        exIdx++
-      })
-    });
-    dayCharts+=`<div class="chart-card" style="margin-bottom:14px">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px">
-        <div style="width:10px;height:10px;border-radius:50%;background:${d.color};flex-shrink:0"></div>
-        <div class="card-title" style="margin:0">${esc(d.label)} day</div>
-      </div>
-      ${exRows||'<div class="chart-box">No exercises set up.</div>'}
-    </div>`
-  });
-  
+
+  // Pick the currently selected day, defaulting to first
+  const currentKey=window._progressDay&&active.find(d=>d.key===window._progressDay)?window._progressDay:active[0].key;
+  window._progressDay=currentKey;
+  const currentDay=active.find(d=>d.key===currentKey);
+
+  // Day tabs
+  const tabsHTML=active.map(d=>`
+    <button class="prog-day-tab" data-day-key="${d.key}"
+      style="padding:6px 14px;border-radius:999px;border:1px solid ${d.key===currentKey?d.color:'var(--border2)'};
+             background:${d.key===currentKey?d.color:'transparent'};
+             color:${d.key===currentKey?'#fff':'var(--muted)'};
+             font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap;transition:all .15s">
+      ${esc(d.label)}
+    </button>`).join('');
+
   return `<div class="chart-grid">
-    <div>
-      ${dayCharts}
+    <div style="min-width:0;overflow:hidden">
+      <!-- Day switcher tabs -->
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px">
+        ${tabsHTML}
+      </div>
+      <!-- Chart area for selected day -->
+      <div id="prog-chart-area" style="padding:0 4px">
+        ${renderDayCharts(currentDay)}
+      </div>
     </div>
     <div>
       <div class="chart-card" style="margin-bottom:14px">
@@ -406,7 +632,108 @@ function renderProgressPanel(){
         </div>
       </div>
     </div>
-  </div>`
+  </div>`;
+}
+
+function getAdditionalDays(){
+  const sc=getSchedule();
+  const used=[...new Set(Object.values(sc.assignments).flat().filter(Boolean))];
+  return sc.days.filter(d=>d.isAdditional&&used.includes(d.key));
+}
+
+function renderSupplementaryPanel(w){
+  const additionalDays=getAdditionalDays();
+
+  if(!additionalDays.length){
+    return `<div class="panel" id="panel-supplementary">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--rlg);padding:36px 24px;text-align:center;box-shadow:var(--shadow)">
+        <div style="font-size:28px;margin-bottom:10px">📋</div>
+        <div style="font-weight:800;font-size:15px;margin-bottom:6px">No supplementary days set up</div>
+        <div style="font-size:13px;color:var(--muted);margin-bottom:18px">Add Additional days in your Schedule (e.g. Core, Hangboard) and assign them to weekdays — they'll appear here for exercise tracking.</div>
+        <button class="btn-primary" data-action="schedule">Open Schedule</button>
+      </div>
+    </div>`;
+  }
+
+  let cards='';
+  additionalDays.forEach(d=>{
+    const sc=getSchedule();
+    const assignedDays=Object.entries(sc.assignments)
+      .filter(([,v])=>Array.isArray(v)&&v.includes(d.key))
+      .map(([i])=>DAY_NAMES[Number(i)]).join(' · ');
+
+    let idx=0;
+    let exHtml='';
+    gex(d.key).forEach((sec,si)=>{
+      sec.exercises.forEach((ex,ei)=>{
+        exHtml+=renderExCard(d,ex,si,ei,idx,ge(w.id,d.key,idx));
+        idx++;
+      });
+      exHtml+=`<button class="add-ex-btn" data-action="add-ex" data-day="${d.key}" data-si="${si}">+ Add exercise</button>`;
+    });
+
+    cards+=`<div style="margin-bottom:20px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+        <div style="width:10px;height:10px;border-radius:50%;background:${d.color};flex-shrink:0"></div>
+        <div style="font-weight:800;font-size:15px">${esc(d.label)}</div>
+        ${assignedDays?`<div style="font-size:11px;color:var(--hint);margin-left:4px">${assignedDays}</div>`:''}
+      </div>
+      ${exHtml}
+    </div>`;
+  });
+
+  return `<div class="panel" id="panel-supplementary">${cards}</div>`;
+}
+
+function setSupplementary(weekId,suppKey,val){
+  const w=gw(weekId);if(!w)return;
+  if(!w.supplementary)w.supplementary={};
+  if(val.trim())w.supplementary[suppKey]=val;
+  else delete w.supplementary[suppKey];
+  scheduleSave();
+}
+
+function renderNotesPanel(w){
+  const DAYS=[{short:'Mon',full:'Monday'},{short:'Tue',full:'Tuesday'},{short:'Wed',full:'Wednesday'},{short:'Thu',full:'Thursday'},{short:'Fri',full:'Friday'},{short:'Sat',full:'Saturday'},{short:'Sun',full:'Sunday'}];
+  const notes=w.notes||{};
+  let rows='';
+  DAYS.forEach((d,i)=>{
+    const val=notes['d'+i]||'';
+    rows+=`<div style="display:grid;grid-template-columns:68px 1fr;border-bottom:1px solid var(--border)">
+      <div style="display:flex;align-items:flex-start;justify-content:center;padding:14px 0;border-right:1px solid var(--border)">
+        <div style="text-align:center">
+          <div style="font-size:13px;font-weight:800;color:var(--text);line-height:1">${d.short}</div>
+          <div style="font-size:10px;color:var(--hint);margin-top:2px;font-weight:500">${d.full.slice(3)}</div>
+        </div>
+      </div>
+      <div style="padding:8px 12px">
+        <textarea class="notes-input" data-note-idx="${i}"
+          placeholder="Sleep, energy, how you felt..."
+          style="width:100%;min-height:58px;resize:vertical;background:transparent;border:1px solid transparent;border-radius:8px;padding:7px 9px;color:var(--text);font-family:inherit;font-size:13px;line-height:1.55;outline:none;transition:border-color .15s,background .15s;box-sizing:border-box"
+          onfocus="this.style.borderColor='rgba(37,99,235,.35)';this.style.background='var(--surface2)'"
+          onblur="this.style.borderColor='transparent';this.style.background='transparent'"
+        >${esc(val)}</textarea>
+      </div>
+    </div>`;
+  });
+  return `<div class="panel" id="panel-notes">
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--rlg);box-shadow:var(--shadow);overflow:hidden">
+      <div style="padding:14px 18px;border-bottom:1px solid var(--border)">
+        <div style="font-weight:800;font-size:14px">Weekly Notes</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:2px">Log anything for each day - sleep, energy, how you felt, life stuff</div>
+      </div>
+      ${rows}
+    </div>
+  </div>`;
+}
+
+function setNote(weekId,dayIdx,val){
+  const w=gw(weekId);if(!w)return;
+  if(!w.notes)w.notes={};
+  const key='d'+dayIdx;
+  if(val.trim())w.notes[key]=val;
+  else delete w.notes[key];
+  scheduleSave();
 }
 
 function renderMain(){
@@ -426,6 +753,8 @@ function renderMain(){
     <button class="tab" id="tab-overview" data-action="tab" data-tab="overview">Overview</button>
     <button class="tab" id="tab-progress" data-action="tab" data-tab="progress">Progress</button>
     <button class="tab" data-action="schedule">Schedule</button>
+    <button class="tab" id="tab-supplementary" data-action="tab" data-tab="supplementary">Supplementary</button>
+    <button class="tab" id="tab-notes" data-action="tab" data-tab="notes">Notes</button>
   </div>`;
 
   // Overview panel
@@ -443,9 +772,14 @@ function renderMain(){
       const dd=(w.data&&w.data[d.key])||{};
       const filled=Object.values(dd).filter(e=>e&&typeof e==='object'&&(e.weight||e.sets||e.reps)).length;
       const pct=total?Math.round(filled/total*100):0;
-      const sched=Object.entries(getSchedule().assignments).filter(([,v])=>v===d.key).map(([i])=>DAY_NAMES[Number(i)]).join(' & ');
+      const sched=Object.entries(getSchedule().assignments).filter(([,v])=>Array.isArray(v)&&v.includes(d.key)).map(([i])=>DAY_NAMES[Number(i)]).join(' & ');
+      // Collect extras that appear on the same day slots as this training day
+      const sc2=getSchedule();
+      const daySlots=Object.entries(sc2.assignments).filter(([,v])=>Array.isArray(v)&&v.includes(d.key)).map(([i])=>Number(i));
+      const allExtras=[...new Set(daySlots.flatMap(s=>(sc2.extras&&sc2.extras[s])||[]))];
+      const extrasLine=allExtras.length?`<div style="font-size:10px;color:var(--hint);margin-top:2px">${allExtras.map(esc).join(' · ')}</div>`:'';
       h+=`<div class="ov-card" data-action="open-day" data-day="${d.key}">
-        <div><div class="ov-type" style="color:${d.color}">${esc(d.label)}</div><div class="ov-name">${esc(sched)}</div></div>
+        <div><div class="ov-type" style="color:${d.color}">${esc(d.label)}</div><div class="ov-name">${esc(sched)}</div>${extrasLine}</div>
         <div><div class="ov-bar-wrap"><div class="ov-bar" style="width:${pct}%;background:${d.color}"></div></div>
         <div class="ov-meta"><b>${filled}</b>/${total} logged</div></div>
       </div>`
@@ -480,16 +814,102 @@ function renderMain(){
   // Progress panel
   h+=`<div class="panel" id="panel-progress">${renderProgressPanel()}</div>`;
 
+  // Supplementary panel
+  h+=renderSupplementaryPanel(w);
+
+  // Notes panel
+  h+=renderNotesPanel(w);
+
   c.innerHTML=h;
   switchTab(state.activeDay||'overview',true);
   updateStats();
   renderSidebar()
 }
 
+function renderExCard(d, ex, si, ei, idx, saved){
+  const type=ex.type||'weighted';
+  const ss=saved.sets!==undefined?saved.sets:ex.sets;
+  const sr=saved.reps!==undefined?saved.reps:ex.reps;
+  const sw=saved.weight||'';
+  const st=saved.time||'';
+  const sn=saved.note||'';
+  const sp=saved.prog||'';
+
+  // Type badge colors
+  const TYPE_COLORS={weighted:'#2563eb',timed:'#059669',bodyweight:'#7c3aed',free:'#94a3b8'};
+  const typeColor=TYPE_COLORS[type]||'#94a3b8';
+
+  // Pill badge that cycles type on click
+  const typeBadge=`<button class="ex-type-badge" data-action="cycle-type" data-day="${d.key}" data-si="${si}" data-ei="${ei}" title="Click to change type">
+    <span class="type-dot" style="background:${typeColor}"></span>
+    ${EX_TYPE_LABELS[type]}
+  </button>`;
+
+  // Hidden select kept for data-action change handler compatibility
+  const typeSelect=`<select class="ex-type-sel" data-action="ex-type" data-day="${d.key}" data-si="${si}" data-ei="${ei}">
+    ${EX_TYPES.map(t=>`<option value="${t}"${t===type?' selected':''}>${EX_TYPE_LABELS[t]}</option>`).join('')}
+  </select>`;
+
+  // Fields based on type
+  let fields='';
+  if(type==='weighted'){
+    fields=`
+      <div class="ex-field"><div class="ex-field-lbl">Sets</div><input type="number" value="${ss}" data-action="field" data-day="${d.key}" data-idx="${idx}" data-field="sets"></div>
+      <div class="ex-field"><div class="ex-field-lbl">Reps</div><input value="${escAttr(sr)}" data-action="field" data-day="${d.key}" data-idx="${idx}" data-field="reps"></div>
+      <div class="ex-field"><div class="ex-field-lbl">Weight (lbs)</div><input value="${escAttr(sw)}" placeholder="—" data-action="field" data-day="${d.key}" data-idx="${idx}" data-field="weight"></div>
+      <div class="ex-field"><div class="ex-field-lbl">Progress</div>
+        <div class="prog-btns">
+          <button class="prog-btn up ${sp==='up'?'active':''}" data-action="prog" data-day="${d.key}" data-idx="${idx}" data-val="up">+</button>
+          <button class="prog-btn same ${sp==='same'?'active':''}" data-action="prog" data-day="${d.key}" data-idx="${idx}" data-val="same">=</button>
+          <button class="prog-btn down ${sp==='down'?'active':''}" data-action="prog" data-day="${d.key}" data-idx="${idx}" data-val="down">-</button>
+        </div>
+      </div>`;
+  } else if(type==='timed'){
+    fields=`
+      <div class="ex-field"><div class="ex-field-lbl">Sets</div><input type="number" value="${ss}" data-action="field" data-day="${d.key}" data-idx="${idx}" data-field="sets"></div>
+      <div class="ex-field" style="grid-column:span 2"><div class="ex-field-lbl">Duration</div><input value="${escAttr(st)}" placeholder="e.g. 2:00 or 45s" data-action="field" data-day="${d.key}" data-idx="${idx}" data-field="time"></div>
+      <div class="ex-field"><div class="ex-field-lbl">Progress</div>
+        <div class="prog-btns">
+          <button class="prog-btn up ${sp==='up'?'active':''}" data-action="prog" data-day="${d.key}" data-idx="${idx}" data-val="up">+</button>
+          <button class="prog-btn same ${sp==='same'?'active':''}" data-action="prog" data-day="${d.key}" data-idx="${idx}" data-val="same">=</button>
+          <button class="prog-btn down ${sp==='down'?'active':''}" data-action="prog" data-day="${d.key}" data-idx="${idx}" data-val="down">-</button>
+        </div>
+      </div>`;
+  } else if(type==='bodyweight'){
+    fields=`
+      <div class="ex-field"><div class="ex-field-lbl">Sets</div><input type="number" value="${ss}" data-action="field" data-day="${d.key}" data-idx="${idx}" data-field="sets"></div>
+      <div class="ex-field" style="grid-column:span 2"><div class="ex-field-lbl">Reps</div><input value="${escAttr(sr)}" data-action="field" data-day="${d.key}" data-idx="${idx}" data-field="reps"></div>
+      <div class="ex-field"><div class="ex-field-lbl">Progress</div>
+        <div class="prog-btns">
+          <button class="prog-btn up ${sp==='up'?'active':''}" data-action="prog" data-day="${d.key}" data-idx="${idx}" data-val="up">+</button>
+          <button class="prog-btn same ${sp==='same'?'active':''}" data-action="prog" data-day="${d.key}" data-idx="${idx}" data-val="same">=</button>
+          <button class="prog-btn down ${sp==='down'?'active':''}" data-action="prog" data-day="${d.key}" data-idx="${idx}" data-val="down">-</button>
+        </div>
+      </div>`;
+  } else {
+    // free note
+    fields=`<div class="ex-field" style="grid-column:1/-1"><div class="ex-field-lbl">Note</div>
+      <input value="${escAttr(sn)}" placeholder="Any note..." data-action="field" data-day="${d.key}" data-idx="${idx}" data-field="note"></div>`;
+  }
+
+  return `<div class="ex-card">
+    <div class="ex-top">
+      <span class="ex-num">${String(idx+1).padStart(2,'0')}</span>
+      <input class="ex-name-input" value="${escAttr(ex.name)}" placeholder="Exercise name" data-action="ex-name" data-day="${d.key}" data-si="${si}" data-ei="${ei}">
+      <div class="ex-top-right">
+        ${typeBadge}${typeSelect}
+        <input class="ex-muscle-input" value="${escAttr(ex.muscle||'')}" placeholder="Target / muscle" data-action="ex-muscle" data-day="${d.key}" data-si="${si}" data-ei="${ei}">
+        <button class="ex-del-btn" data-action="del-ex" data-day="${d.key}" data-si="${si}" data-ei="${ei}">×</button>
+      </div>
+    </div>
+    <div class="ex-fields">${fields}</div>
+  </div>`;
+}
+
 function renderDayPanel(w,d){
   let h=`<div class="panel" id="panel-${d.key}">
     <div class="day-hdr">
-      <button class="back-btn" data-action="tab" data-tab="overview">← Overview</button>
+      <button class="back-btn" data-action="tab" data-tab="overview">&#8592; Overview</button>
       <div class="day-pill" style="background:${d.color}">${esc(d.label)}</div>
       <div><div class="day-title">${esc(d.fullname||d.label+' day')}</div></div>
       <div class="date-wrap"><label>Date</label><input type="date" value="${(w.data&&w.data[d.key+'_date'])||''}" data-action="date" data-day="${d.key}"></div>
@@ -497,37 +917,17 @@ function renderDayPanel(w,d){
   let idx=0;
   gex(d.key).forEach((sec,si)=>{
     sec.exercises.forEach((ex,ei)=>{
-      const saved=ge(w.id,d.key,idx),ss=saved.sets!==undefined?saved.sets:ex.sets,sr=saved.reps!==undefined?saved.reps:ex.reps,sw=saved.weight||'',sp=saved.prog||'';
-      h+=`<div class="ex-card">
-        <div class="ex-top">
-          <span class="ex-num">${String(idx+1).padStart(2,'0')}</span>
-          <input class="ex-name-input" value="${escAttr(ex.name)}" placeholder="Exercise name" data-action="ex-name" data-day="${d.key}" data-si="${si}" data-ei="${ei}">
-          <input class="ex-muscle-input" value="${escAttr(ex.muscle||'')}" placeholder="Muscle group" data-action="ex-muscle" data-day="${d.key}" data-si="${si}" data-ei="${ei}">
-          <button class="ex-del-btn" data-action="del-ex" data-day="${d.key}" data-si="${si}" data-ei="${ei}">×</button>
-        </div>
-        <div class="ex-fields">
-          <div class="ex-field"><div class="ex-field-lbl">Sets</div><input type="number" value="${ss}" data-action="field" data-day="${d.key}" data-idx="${idx}" data-field="sets"></div>
-          <div class="ex-field"><div class="ex-field-lbl">Reps</div><input value="${escAttr(sr)}" data-action="field" data-day="${d.key}" data-idx="${idx}" data-field="reps"></div>
-          <div class="ex-field"><div class="ex-field-lbl">Weight</div><input value="${escAttr(sw)}" placeholder="135" data-action="field" data-day="${d.key}" data-idx="${idx}" data-field="weight"></div>
-          <div class="ex-field"><div class="ex-field-lbl">Progress</div>
-            <div class="prog-btns">
-              <button class="prog-btn up ${sp==='up'?'active':''}" data-action="prog" data-day="${d.key}" data-idx="${idx}" data-val="up">+</button>
-              <button class="prog-btn same ${sp==='same'?'active':''}" data-action="prog" data-day="${d.key}" data-idx="${idx}" data-val="same">=</button>
-              <button class="prog-btn down ${sp==='down'?'active':''}" data-action="prog" data-day="${d.key}" data-idx="${idx}" data-val="down">-</button>
-            </div>
-          </div>
-        </div>
-      </div>`;
-      idx++
+      h+=renderExCard(d,ex,si,ei,idx,ge(w.id,d.key,idx));
+      idx++;
     });
-    h+=`<button class="add-ex-btn" data-action="add-ex" data-day="${d.key}" data-si="${si}">+ Add exercise</button>`
+    h+=`<button class="add-ex-btn" data-action="add-ex" data-day="${d.key}" data-si="${si}">+ Add exercise</button>`;
   });
-  return h+'</div>'
+  return h+'</div>';
 }
 
 function newWeek(){
   const id='w'+Date.now(),num=state.weeks.length+1;
-  state.weeks.push({id,num,label:'Week '+num,startDate:today(),data:{},bodyWeight:null,calories:{}});
+  state.weeks.push({id,num,label:'Week '+num,startDate:today(),data:{},bodyWeight:null,calories:{},supplementary:{},notes:{}});
   state.activeWeek=id;state.activeDay='overview';
   scheduleSave();renderMain();toast('Week '+num+' started')
 }
@@ -574,8 +974,19 @@ function setProg(dk,idx,val){
   }
   updateStats()
 }
-function addEx(dk,si){gex(dk)[si].exercises.push({name:'New exercise',muscle:'',sets:3,reps:'8-12'});scheduleSave();renderMain();openDay(dk)}
-function delEx(dk,si,ei){if(!confirm('Remove this exercise?'))return;gex(dk)[si].exercises.splice(ei,1);scheduleSave();renderMain();openDay(dk)}
+function addEx(dk,si){
+  gex(dk)[si].exercises.push({name:'New exercise',muscle:'',sets:3,reps:'8-12'});
+  scheduleSave();renderMain();
+  const isAdditional=getSchedule().days.find(d=>d.key===dk&&d.isAdditional);
+  isAdditional?switchTab('supplementary',true):openDay(dk);
+}
+function delEx(dk,si,ei){
+  if(!confirm('Remove this exercise?'))return;
+  gex(dk)[si].exercises.splice(ei,1);
+  scheduleSave();renderMain();
+  const isAdditional=getSchedule().days.find(d=>d.key===dk&&d.isAdditional);
+  isAdditional?switchTab('supplementary',true):openDay(dk);
+}
 function upExName(dk,si,ei,val){gex(dk)[si].exercises[ei].name=val;scheduleSave()}
 function upExMuscle(dk,si,ei,val){gex(dk)[si].exercises[ei].muscle=val;scheduleSave()}
 
@@ -584,12 +995,12 @@ function openWkPicker(){$('wk-picker').style.display='flex';renderSidebar()}
 function closeWkPicker(){$('wk-picker').style.display='none'}
 function openScheduleConfig(){$('schedule-modal').style.display='flex';renderScheduleConfig()}
 function closeScheduleConfig(){$('schedule-modal').style.display='none'}
-function addScheduleDay(){
+function addScheduleDay(isAdditional=false){
   const inp=$('new-day-name'),name=(inp.value||'').trim();
   if(!name){toast('Enter a day name');return}
   const sc=getSchedule(),key='custom_'+Date.now();
-  sc.days.push({key,label:name,fullname:name+' day',color:COLORS[sc.days.length%COLORS.length],tc:'#fff'});
-  state.customExercises[key]=[{title:null,exercises:[]}];
+  sc.days.push({key,label:name,fullname:name+' day',color:isAdditional?'#64748b':COLORS[sc.days.filter(d=>!d.isAdditional).length%COLORS.length],tc:'#fff',isAdditional:isAdditional||undefined});
+  if(!isAdditional) state.customExercises[key]=[{title:null,exercises:[]}];
   inp.value='';renderScheduleConfig();scheduleSave()
 }
 function removeScheduleDay(key){
@@ -600,7 +1011,16 @@ function removeScheduleDay(key){
 }
 function assignDay(i,key){
   const sc=getSchedule();
-  if(key)sc.assignments[i]=key;else delete sc.assignments[i];
+  if(key){
+    const cur=sc.assignments[i]||[];
+    if(!cur.includes(key)&&cur.length<3)sc.assignments[i]=[...cur,key];
+  }else delete sc.assignments[i];
+  renderScheduleConfig();scheduleSave()
+}
+function removeFromSlot(i,key){
+  const sc=getSchedule();
+  const cur=(sc.assignments[i]||[]).filter(k=>k!==key);
+  if(cur.length)sc.assignments[i]=cur;else delete sc.assignments[i];
   renderScheduleConfig();scheduleSave()
 }
 function swapScheduleSlots(a,b){
@@ -609,53 +1029,146 @@ function swapScheduleSlots(a,b){
   if(av)sc.assignments[b]=av;else delete sc.assignments[b];
   renderScheduleConfig();scheduleSave()
 }
+// drag payload now carries a single key within a slot
+
+
+function addExtra(slot, label){
+  const sc=getSchedule();
+  if(!sc.extras[slot])sc.extras[slot]=[];
+  const trimmed=label.trim();
+  if(!trimmed||sc.extras[slot].includes(trimmed))return;
+  sc.extras[slot].push(trimmed);
+  renderScheduleConfig();scheduleSave()
+}
+function removeExtra(slot, idx){
+  const sc=getSchedule();
+  if(!sc.extras[slot])return;
+  sc.extras[slot].splice(idx,1);
+  if(!sc.extras[slot].length)delete sc.extras[slot];
+  renderScheduleConfig();scheduleSave()
+}
 function renderScheduleConfig(){
   const sc=getSchedule(),pal=$('day-palette'),cal=$('sched-calendar');
   if(!pal||!cal)return;
-  pal.innerHTML='';
-  sc.days.forEach(d=>{
-    const wrap=document.createElement('div');
-    wrap.className='day-token-wrap';
-    wrap.innerHTML=`<button class="pill" data-day-key="${d.key}" style="background:${d.color}">${esc(d.label)}</button><button class="day-remove" data-remove-day="${d.key}">×</button>`;
-    const pill=wrap.querySelector('.pill');
-    // Click to select
-    pill.addEventListener('click',()=>{window._selectedDay=d.key;toast('Tap a weekday cell to assign '+d.label)});
-    // Pointer drag (touch + mouse)
-    attachPointerDrag(pill,{dayKey:d.key,label:d.label,color:d.color});
-    // Remove button
-    wrap.querySelector('.day-remove').addEventListener('click',()=>removeScheduleDay(d.key));
-    pal.appendChild(wrap)
-  });
 
+  // ── Left panel: two sections ──
+  pal.innerHTML='';
+
+  const mainDays=sc.days.filter(d=>!d.isAdditional);
+  const additionalDays=sc.days.filter(d=>d.isAdditional);
+
+  function makeRow(d){
+    const row=document.createElement('div');
+    row.style.cssText='display:flex;align-items:center;gap:8px;padding:7px 8px;border-radius:8px;cursor:grab;margin-bottom:1px;transition:background .1s';
+    row.innerHTML=`
+      <div style="width:26px;height:26px;border-radius:7px;background:${d.color};flex-shrink:0;display:flex;align-items:center;justify-content:center">
+        <svg width="9" height="9" viewBox="0 0 10 10" fill="none">
+          <circle cx="3" cy="3" r="1.3" fill="rgba(255,255,255,.75)"/>
+          <circle cx="7" cy="3" r="1.3" fill="rgba(255,255,255,.75)"/>
+          <circle cx="3" cy="7" r="1.3" fill="rgba(255,255,255,.75)"/>
+          <circle cx="7" cy="7" r="1.3" fill="rgba(255,255,255,.75)"/>
+        </svg>
+      </div>
+      <span style="flex:1;font-size:13px;font-weight:600;color:var(--text);user-select:none">${esc(d.label)}</span>
+      <button data-remove-day="${d.key}" style="border:none;background:none;color:var(--hint);font-size:14px;cursor:pointer;padding:2px 5px;border-radius:5px;line-height:1;opacity:0;transition:opacity .15s">×</button>`;
+    row.onmouseenter=()=>{
+      if(!row.classList.contains('pal-row-selected'))row.style.background='var(--surface2)';
+      row.querySelector('[data-remove-day]').style.opacity='1';
+    };
+    row.onmouseleave=()=>{
+      if(!row.classList.contains('pal-row-selected'))row.style.background='transparent';
+      row.querySelector('[data-remove-day]').style.opacity='0';
+    };
+    row.addEventListener('click',e=>{
+      if(e.target.closest('[data-remove-day]'))return;
+      window._selectedDay=d.key;
+      pal.querySelectorAll('.pal-row-selected').forEach(r=>{
+        r.classList.remove('pal-row-selected');
+        r.style.background='transparent';r.style.outline='none';
+      });
+      row.classList.add('pal-row-selected');
+      row.style.background=d.color+'22';
+      row.style.outline='1.5px solid '+d.color+'66';
+      toast('Click a weekday to assign '+d.label);
+    });
+    row.querySelector('[data-remove-day]').addEventListener('click',()=>removeScheduleDay(d.key));
+    attachPointerDrag(row,{dayKey:d.key,label:d.label,color:d.color});
+    return row;
+  }
+
+  // Section: Training Days
+  const trainLabel=document.createElement('div');
+  trainLabel.style.cssText='padding:6px 8px 4px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--hint)';
+  trainLabel.textContent='Training Days';
+  pal.appendChild(trainLabel);
+  mainDays.forEach(d=>pal.appendChild(makeRow(d)));
+
+  // Section: Additional
+  const addLabel=document.createElement('div');
+  addLabel.style.cssText='padding:12px 8px 4px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--hint);display:flex;align-items:center;justify-content:space-between;margin-top:4px;border-top:1px solid var(--border)';
+  addLabel.innerHTML='<span>Additional</span><span style="font-size:9px;color:var(--hint);font-weight:400;text-transform:none;letter-spacing:0">no workout tracking</span>';
+  pal.appendChild(addLabel);
+  if(additionalDays.length){
+    additionalDays.forEach(d=>pal.appendChild(makeRow(d)));
+  } else {
+    const empty=document.createElement('div');
+    empty.style.cssText='padding:6px 8px;font-size:12px;color:var(--hint);font-style:italic';
+    empty.textContent='e.g. Core, Hangboard…';
+    pal.appendChild(empty);
+  }
+
+  // ── Right panel: week rows (single zone, all assigned days) ──
   cal.innerHTML='';
   DAY_NAMES.forEach((dn,i)=>{
-    const key=sc.assignments[i],d=key?getDay(key):null;
-    const cell=document.createElement('div');
-    cell.className='sched-cell';
-    cell.dataset.slot=String(i);
-    cell.innerHTML=`<div class="sched-day-name">${dn}</div>${d
-      ?`<div class="sched-filled" data-slot="${i}" style="background:${d.color}">${esc(d.label)}<button class="sched-x" data-clear-slot="${i}">×</button></div>`
-      :`<div style="height:66px;display:flex;align-items:center;justify-content:center;color:var(--hint);font-size:12px;text-align:center;pointer-events:none">Drop here</div>`}`;
+    const keys=sc.assignments[i]||[];
+    const days=keys.map(k=>getDay(k));
+    const canAdd=keys.length<3;
 
-    // Click to assign selected day
-    cell.addEventListener('click',e=>{
-      if(e.target.closest('.sched-x'))return;
-      if(e.target.closest('.sched-filled'))return;
-      if(window._selectedDay){assignDay(i,window._selectedDay);window._selectedDay=null}
+    const row=document.createElement('div');
+    row.style.cssText='display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--surface);border-radius:10px;border:1px solid var(--border);min-height:60px;cursor:pointer;transition:border-color .12s';
+    row.dataset.slot=String(i);
+    row.className='sched-cell';
+
+    const chipsHTML=days.map((d,di)=>{
+      const isAdd=!!d.isAdditional;
+      return `<div class="sched-filled" data-slot="${i}" data-day-key="${keys[di]}"
+           style="background:${d.color};border-radius:${isAdd?'6px':'9px'};padding:${isAdd?'5px 7px 5px 11px':'7px 8px 7px 13px'};gap:${isAdd?'5px':'7px'};user-select:none;-webkit-user-select:none;opacity:${isAdd?'.85':'1'}">
+        <span style="font-size:${isAdd?'12px':'14px'};font-weight:${isAdd?'600':'700'};color:#fff;white-space:nowrap">${esc(d.label)}</span>
+        <button class="sched-x" data-remove-slot="${i}" data-remove-key="${keys[di]}" style="width:${isAdd?'15px':'18px'};height:${isAdd?'15px':'18px'};font-size:${isAdd?'10px':'12px'}">×</button>
+      </div>`;
+    }).join('');
+
+    const hintHTML=canAdd
+      ?`<span style="font-size:11px;color:var(--hint);padding:3px 8px;border:1px dashed var(--border2);border-radius:6px;pointer-events:none;white-space:nowrap">${days.length?'+ add':'Drop or click'}</span>`
+      :'';
+
+    row.innerHTML=`
+      <div style="width:32px;font-size:11px;font-weight:700;color:var(--hint);letter-spacing:.05em;text-transform:uppercase;flex-shrink:0">${dn}</div>
+      <div style="display:flex;flex-wrap:wrap;gap:5px;align-items:center;flex:1">${chipsHTML}${hintHTML}</div>`;
+
+    row.addEventListener('click',e=>{
+      if(e.target.closest('.sched-x')||e.target.closest('.sched-filled'))return;
+      if(window._selectedDay){
+        assignDay(i,window._selectedDay);
+        window._selectedDay=null;
+        pal.querySelectorAll('.pal-row-selected').forEach(r=>{
+          r.classList.remove('pal-row-selected');r.style.outline='none';r.style.background='transparent';
+        });
+      }
     });
-
-    // × clear button
-    const xBtn=cell.querySelector('.sched-x');
-    if(xBtn)xBtn.addEventListener('click',e=>{e.stopPropagation();assignDay(i,null)});
-
-    // Filled cell drag (for swap)
-    const filled=cell.querySelector('.sched-filled');
-    if(filled){
-      attachPointerDrag(filled,{slot:i,label:d.label,color:d.color})
-    }
-    cal.appendChild(cell)
-  })
+    row.addEventListener('mouseenter',()=>{if(canAdd)row.style.borderColor='var(--border2)'});
+    row.addEventListener('mouseleave',()=>row.style.borderColor='var(--border)');
+    row.querySelectorAll('.sched-x').forEach(btn=>{
+      btn.addEventListener('click',e=>{e.stopPropagation();removeFromSlot(Number(btn.dataset.removeSlot),btn.dataset.removeKey)});
+    });
+    row.querySelectorAll('.sched-filled').forEach(chip=>{
+      const dk=chip.dataset.dayKey,d2=getDay(dk);
+      attachPointerDrag(chip,{slot:i,key:dk,label:d2.label,color:d2.color});
+    });
+    cal.appendChild(row);
+  });
 }
+
 
 function attachPointerDrag(el,payload){
   let sx=0,sy=0,dragging=false,ghost=null,lastCell=null;
@@ -700,14 +1213,18 @@ function attachPointerDrag(el,payload){
         const cell2=under&&under.closest&&under.closest('.sched-cell');
         if(cell2){
           const to=Number(cell2.dataset.slot);
-          if(payload.slot!==undefined)swapScheduleSlots(Number(payload.slot),to);
-          else if(payload.dayKey)assignDay(to,payload.dayKey)
+          if(payload.key!==undefined){removeFromSlot(Number(payload.slot),payload.key);assignDay(to,payload.key);}
+          else if(payload.dayKey)assignDay(to,payload.dayKey);
         }
         return;
       }
       const to=Number(dropCell.dataset.slot);
-      if(payload.slot!==undefined)swapScheduleSlots(Number(payload.slot),to);
-      else if(payload.dayKey)assignDay(to,payload.dayKey)
+      if(payload.key!==undefined){
+        removeFromSlot(Number(payload.slot),payload.key);
+        assignDay(to,payload.key);
+      } else if(payload.dayKey){
+        assignDay(to,payload.dayKey);
+      }
     };
     document.addEventListener('pointermove',move,{passive:false});
     document.addEventListener('pointerup',up);
@@ -763,7 +1280,7 @@ function clearAllOldData(){
 
 // ── Single delegated event handler ──
 document.addEventListener('click',e=>{
-  const t=e.target.closest('[data-action],[data-remove-day],[data-clear-slot],#wk-picker-btn,#settings-menu-btn,#new-week-sidebar,#start-week-btn,#new-week-picker,#close-wk-picker,#backup-btn,#import-btn,#clear-btn,#close-schedule,#cancel-schedule,#save-schedule,#add-day-btn');
+  const t=e.target.closest('[data-action],[data-remove-day],[data-clear-slot],.prog-day-tab,#wk-picker-btn,#settings-menu-btn,#new-week-sidebar,#start-week-btn,#new-week-picker,#close-wk-picker,#backup-btn,#import-btn,#clear-btn,#close-schedule,#cancel-schedule,#save-schedule,#add-day-btn');
   if(!t)return;
   if(t.id==='new-week-sidebar'||t.id==='start-week-btn'){newWeek();return}
   if(t.id==='new-week-picker'){newWeek();closeWkPicker();return}
@@ -778,6 +1295,7 @@ document.addEventListener('click',e=>{
   if(t.id==='add-day-btn'){addScheduleDay();return}
   if(t.dataset.removeDay){removeScheduleDay(t.dataset.removeDay);return}
   if(t.dataset.clearSlot){assignDay(Number(t.dataset.clearSlot),null);return}
+  if(t.classList.contains('prog-day-tab')){switchProgressDay(t.dataset.dayKey);return}
   const action=t.dataset.action;
   if(!action)return;
   if(action==='tab'){switchTab(t.dataset.tab);return}
@@ -787,6 +1305,13 @@ document.addEventListener('click',e=>{
   if(action==='prog'){setProg(t.dataset.day,t.dataset.idx,t.dataset.val);return}
   if(action==='add-ex'){addEx(t.dataset.day,Number(t.dataset.si));return}
   if(action==='del-ex'){delEx(t.dataset.day,Number(t.dataset.si),Number(t.dataset.ei));return}
+  if(action==='cycle-type'){
+    const dk=t.dataset.day,si=Number(t.dataset.si),ei=Number(t.dataset.ei);
+    const cur=gex(dk)[si].exercises[ei].type||'weighted';
+    const next=EX_TYPES[(EX_TYPES.indexOf(cur)+1)%EX_TYPES.length];
+    upExType(dk,si,ei,next);
+    return;
+  }
 });
 
 document.addEventListener('change',e=>{
@@ -797,7 +1322,10 @@ document.addEventListener('change',e=>{
   if(action==='field'){se(t.dataset.day,t.dataset.idx,t.dataset.field,t.value);return}
   if(action==='ex-name'){upExName(t.dataset.day,Number(t.dataset.si),Number(t.dataset.ei),t.value);return}
   if(action==='ex-muscle'){upExMuscle(t.dataset.day,Number(t.dataset.si),Number(t.dataset.ei),t.value);return}
+  if(action==='ex-type'){upExType(t.dataset.day,Number(t.dataset.si),Number(t.dataset.ei),t.value);return}
   if(t.id==='backup-file-input'){importBackupFile(e);return}
+  // Notes text areas
+  if(t.classList&&t.classList.contains('notes-input')){setNote(state.activeWeek,t.dataset.noteIdx,t.value);return}
 });
 
 // Close modals on backdrop click
@@ -806,6 +1334,11 @@ document.getElementById('schedule-modal').addEventListener('click',e=>{if(e.targ
 
 // Expose functions needed by inline HTML handlers
 window.addScheduleDay=addScheduleDay;
+window.upExType=upExType;
+window.removeFromSlot=removeFromSlot;
+window.addExtra=addExtra;
+window.removeExtra=removeExtra;
+window.switchProgressDay=switchProgressDay;
 window.openScheduleConfig=openScheduleConfig;
 window.closeScheduleConfig=closeScheduleConfig;
 window.saveScheduleConfig=saveScheduleConfig;
